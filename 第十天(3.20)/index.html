@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>十</title>
+</head>
+
+<script>
+      console.log(1);
+    </script>
+    <script>
+      console.log(2);
+      console.log(a);
+      console.log(3);
+    </script>
+    <script>
+      console.log(4);
+  </script>
+<body>
+
+<el-h1>
+    <h1>这是不支持shadow-dom的标题~</h1>
+</el-h1>
+
+<div id="host">
+    <h1 class="title">I am title</h1>
+    <p class="subtitle">I am subtitle</p>
+</div>
+
+<div id="app"></div>
+
+<template id="temp">
+    <style>
+        span {
+            color: red;
+        }
+        ::content * {
+            background-color: #60d9ff;
+        }
+        :host {
+            border: 2px solid #14ff1a;
+        }
+    </style>
+    <p onclick="alert('hello~');" pseudo="test">template - 点我吧~~</p>
+    <span>I'm the span tag of template</span>
+    <!-- 绑定#host所有内容 -->
+    <!--<content></content>-->
+
+    <!-- 绑定#host p的内容 -->
+    <content select=".subtitle"></content>
+    <!-- 绑定#host h1的内容 -->
+    <content select="h1"></content>
+</template>
+
+<div class="block"> 块 </div>
+</body>
+
+<style>
+  body {
+    filter: grayscale(1)
+  }
+
+  .block {
+    background-color: red;
+    width: 100px;
+    height: 200px;
+    position:fixed;
+    right:0;
+    left:0;
+    bottom:0;
+    top:0;
+    margin: auto auto
+  }
+
+    h1, p {
+            color: #db73ff !important;
+    }
+
+    #host {
+        background-color: yellow;
+    }
+
+    h1 {
+        color: #db73ff !important;
+    }
+
+    span {
+            color: red;
+    }
+    ::content * {
+        background-color: #60d9ff;
+    }
+
+    :host {
+        border: 2px solid #14ff1a;
+    }
+
+</style>
+
+<script>
+
+  var dataUrl = '';
+    function createStampUrl() {
+      var canvas = document.createElement('canvas');
+      canvas.width = 300;
+      canvas.height = 200;
+      canvas.setAttribute('width', 300);
+      canvas.setAttribute('height', 200);
+      var ctx = canvas.getContext('2d');
+
+      ctx.beginPath();
+      ctx.ellipse(150, 100, 100, 50, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "red";
+      ctx.strokeStyle = "red";
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.ellipse(150, 100, 90, 40, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.ellipse(150, 100, 70, 30, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.closePath();
+
+
+      ctx.font = "14px Microsoft YaHei";
+      ctx.fillStyle = "red";
+      ctx.fillText("hello canvas", 110, 105);
+
+      dataUrl = canvas.toDataURL("image/jpeg");
+
+      var app = document.querySelector("#app");
+      app.style.width = "300px";
+      app.style.height = "300px";
+      app.style.backgroundImage = `url(${dataUrl})`;
+      app.style.backgroundRepeat = 'no-repeat';
+    }
+    createStampUrl();
+
+if (document.body.createShadowRoot) {
+
+      let host = document.querySelector('el-h1');
+      let root = host.createShadowRoot();
+      root.innerHTML = '<h1 style="background-color: #2cacff; color: white;">这是支持shadow-dom的标题~</h1>';
+}
+
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+    var temp = document.querySelector('#temp');
+    var clone = document.importNode(temp.content, true);
+
+    root.appendChild(clone);
+    document.addEventListener('click', function(e) {
+
+        console.log(e.target.innerHTML + ' click!');
+    });
+
+
+</script>
+
+</html>

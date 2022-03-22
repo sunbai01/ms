@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	.haha {
+		color: red;
+		background-color: green;
+		width: 300px;
+		height: 50px;
+	}
+
+	#hd{
+	    height:50px;
+	    background: #666;
+	    text-align: center;
+	}
+
+	#middle{
+	    float:left;
+	    width:100%;/*左栏上去到第一行*/
+	    height:100px;
+	    background:blue;
+	}
+	#left{
+	    float:left;
+	    width:180px;
+	    height:100px;
+	    margin-left:-100%;
+	    background:#0c9;
+	    /*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*/
+	    position:relative;
+	    left:-180px;
+	}
+	#right{
+	    float:left;
+	    width:200px;
+	    height:100px;
+	    margin-left:-200px;
+	    background:#0c9;
+	    /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/
+	    position:relative;
+	    right:-200px;
+	}
+
+	#footer{
+	    height:50px;
+	    background: #666;
+	    text-align: center;
+	}
+
+	#sanjiao {
+		width: 0;
+            height: 0;
+            /*margin: 20px auto;*/
+            border-top: 50px solid red;
+            /*border-width，border-style，border-color*/
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+
+	}
+
+	.b1 {
+	    width: 100px;
+	    height: 100px;
+	    margin-bottom: 30px;
+	    background-color: blue;
+	  }
+	  /* 最终两个 div 的 margin 为 40px，以最大的值为准。*/
+	  .b2 {
+	    width: 100px;
+	    height: 100px;
+	    margin-top: 100px;
+	    background-color: blue;
+	  }
+
+	  .px12 {
+		   font-size: 12px;
+		}
+		.px9 {
+		    font-size: 9px;
+		    display: inline-block;
+		    -webkit-transform: scale(0.75);        /* 12*0.75=9 */
+		}
+		.px6 {
+		    font-size: 6px;
+		    display: block;
+		    -webkit-transform: scale(0.5);        /* 12*0.5=6 */
+		    float: left;
+		}
+
+</style>
+<body>
+
+<div class="haha">
+	sunbai
+</div>
+
+
+<div id="hd">header</div>
+<div>
+	<div id="middle">middle</div>
+	<div id="left">left</div>
+	<div id="right">right</div>
+</div>
+<div id="footer">footer</div>
+
+
+<span>双飞翼布局</span>
+<div>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</div>
+
+<div id="sanjiao"></div>
+
+<!-- bfc举例说明 -->
+<div style="min-height:10px;background-color: red;overflow: hidden">
+    <div style="width:20px;height:20px;background-color: green;float: left"></div>
+</div>
+
+<div class="b1">1</div>
+<div style="overflow: hidden">
+	<div class="b2">2</div>
+</div>
+
+
+<span class="px12">px12</span>
+<span class="px9">px9</span>
+<span class="px6">px6</span>
+
+
+<script> 
+
+// document.querySelector(".haha").requestFullscreen();
+// document.documentElement.requestFullscreen();
+
+</script> 
+</body>
+</html>
