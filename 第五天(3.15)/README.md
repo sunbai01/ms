@@ -1275,13 +1275,65 @@ https://github.com/haizlin/fe-interview/issues/141
 
 算法题：
 
-1、
-2、
+1、给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
 
-todo: 
+单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
 
+示例 1：
 
-vue双向绑定原理
+输入：s = "Hello World"
+输出：5
+解释：最后一个单词是“World”，长度为5。
+
+示例 2：
+
+输入：s = "   fly me   to   the moon  "
+输出：4
+解释：最后一个单词是“moon”，长度为4。
+
+示例 3：
+
+输入：s = "luffy is still joyboy"
+输出：6
+解释：最后一个单词是长度为6的“joyboy”。
+
+var lengthOfLastWord = function(s) {
+    let index = s.length - 1;
+    while (s[index] === ' ') {
+        index--;
+    }
+    let wordLength = 0;
+    while (index >= 0 && s[index] !== ' ') {
+        wordLength++;
+        index--;
+    }
+    return wordLength;
+};
+
+2、给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
+
+最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
+
+你可以假设除了整数 0 之外，这个整数不会以零开头。
+
+示例 1：
+
+输入：digits = [1,2,3]
+输出：[1,2,4]
+解释：输入数组表示数字 123。
+
+示例 2：
+
+输入：digits = [4,3,2,1]
+输出：[4,3,2,2]
+解释：输入数组表示数字 4321。
+
+示例 3：
+
+输入：digits = [0]
+输出：[1]
+
+考虑为9的情况
 
 
 
