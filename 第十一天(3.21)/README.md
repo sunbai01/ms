@@ -25,7 +25,7 @@ const isSameArray = function (array) {
 for in 用于循环对象上可枚举的属性；（最好不要用于数组）
 for of 用于循环具有iterate接口的对象，如：数组、字符串、arguments、标签、日期对象、时间对象等；
 
-# *4、写一个方法实现promise失败后自动重试
+# 4、写一个方法实现promise失败后自动重试
 
 Promise.retry = (fun, limit = 5) => {
     return new Promise((resolve, reject) => {
@@ -146,9 +146,338 @@ https://github.com/haizlin/fe-interview/issues/2614
 
 # 17、请使用js实现一个秒表计时器的程序
 
+https://github.com/haizlin/fe-interview/issues/2618
+
 # 18、你用过Navigator.sendBeacon()吗？说说它有什么应用场景？
 
-# 19、
+这个方法主要用于满足统计和诊断代码的需要，这些代码通常尝试在卸载（unload）文档之前向web服务器发送数据。
+
+navigator.sendBeacon() 方法可用于通过 HTTP POST 将少量数据异步传输到 Web 服务器。
+
+# 19、给你一个页面，找出该页面使用最多的前三个标签以及他们的数量
+
+
+const tagSet = Array.from(document.querySelectorAll('*'))
+    .map(item => item.tagName)
+    .reduce((res, item) => {
+        if (res[item]) {
+            res[item] = res[item] + 1;
+        } else {
+            res[item] = 1;
+        }
+        return res;
+    }, {});
+
+
+ const res = Object.keys(tagSet).map(item => ({
+        key: item,
+        value: tagSet[item]
+    })).sort((a, b) => b.value - a.value)
+   
+   
+console.log(res);
+
+# 20、前端如何保持与服务器时间同步（如何解决客户端与服务端时间不对称的问题）？
+
+1.客户端直接请求并使用服务端时间作为初始时间
+2.在客户端每隔一秒自动为初始时间增加一秒
+
+# 21、当用户打开一个网页时，想一直停留在当前打开的页面，如何禁止页面前进和后退
+
+没有历史记录就不会前进后退
+window.history.forward(-1);
+
+此需求很不人性化
+如果必须实现. 使用 history.pushState 并 监听 popstate 事件. 使历史记录最顶层永远是当前 url
+
+  var url = document.URL;
+  history.pushState({
+    url
+  }, '', url);
+
+  window.onpopstate = function (event) {
+    history.pushState({
+      url
+    }, '', url);
+  };
+
+# 22、js延迟加载的方式中，只有IE浏览器支持的是哪一种方式
+
+动态创建script标签，监听onreadystatechange
+
+# 23、你能用js模拟出右键的复制和粘贴功能吗？如果可以说下是如何操作的？如果不可以请说明下理由
+
+可以
+
+1、监听onContextmenu,用户单击右键的时候，屏蔽系统菜单，显示自定义的右击菜单
+2、监听复制粘贴按钮的单击事件
+
+# 24、async属性诞生的初衷是什么？
+
+为了并行加载脚本文件---------该脚本不依赖于dom，也不依赖于其它脚本，加载完成立即执行
+
+# 25、解释下隐式全局变量和外部函数作用域
+
+隐式全局变量是不需要声明即可以在任何地方直接使用的变量，如浏览器端的window, node端的global
+当函数内包括函数时（闭包），外层函数相对于内层函数的作用域即外部函数作用域
+
+# 26、sessionStrorage也可以使用onstorage事件吗?
+
+onStorage的事件意思是：
+https://developer.mozilla.org/zh-CN/docs/Web/API/WindowEventHandlers/onstorage
+
+支持
+
+# 27、使用window.open(url)下载文件时为什么会被浏览器拦截？如何解决？
+
+如果浏览器发现window.open下载文件不是由用户触发，则会拦截
+解决方案，二选一：
+1.将window.open放在按钮的单击事件中执行
+2.动态创建一个a标签，设置url 和 target,执行click,最后移除
+
+
+# 28、前端下载文件的方式有哪些？
+
+1、a标签download属性和href属性
+<a download="imgName" href="./img/1.jpg">
+2、open方法
+window.open("./img/1.jpg")
+3、表单提交
+form.submit()
+
+# 29、为什么jsonp不支持post的方法？
+
+jsonp是跨域解决方案的其中一种方式，依赖script来突破同源策略的限制，而script是通过get方式拉取资源的。
+
+# 30、使用try catch哪些异常是捕获不到的？哪些能捕获到？捕获不到的要怎样才能捕获到？
+
+websocket 连接失败时，无法用try...catch...捕捉
+
+# 31、使用canvas画一个小球自由落体的效果
+
+todo
+
+# 32、下文Promise的执行顺序是怎样的？
+
+// 故函数打印顺序为 1->2->3->4->8->5->9->11->6->10->12->7
+
+// 第二行Promise被创建后自动运行，打印 "1" ，后续执行resolve进入第五行箭头函数
+// 第六行打印 "2" ，后续创建新Promise对象
+// 第七行Promise被创建后立即执行，代码进入第八行，打印 "3" ，后续执行resovle进入第十一行箭头函数
+// 第十二行打印 "4" 完成，没有resolve强制执行下个任务进入同步任务队列，回过头来执行第一个Promise的then函数
+// 第二十五行箭头函数执行，打印 "8" ,继而执行Promise.resolve，强行插队回到第二个Promise的第二个then十三行中（第一个then被强制resolve）
+// 第十四行箭头函数执行，打印 "5" ，回到原始队列，继续执行第一个Promise，代码进入二十八行
+// 第二十九行箭头函数执行，打印 "9",第二十四行到三十四行内为第一个Promise的一个then行为，没有resolve，下个任务继而计入同步队列，执行三十五行的下一个then
+// 第三十六行箭头函数执行，打印 "11" ，进行下一个异步前需要清空同步队列，现在在同步队列中的任务有第十六行和第二十四行
+// 根据同步队列顺序，第十六行then方法先执行，执行十七行箭头函数，打印 "6" ，然后没有resolve强制执行下个任务进入同步队列
+// 继续根据同步队列顺序第二十四行then继续执行，前部分已完成，直接进入第三十一行，第三十二行执行箭头函数，打印 "10" ,该同步队列清空，继续下一个异步
+// 第三十九行箭头函数执行，打印 "12"，进行下一个异步前摇清空同步队列，同步队列中还剩十九行
+// 根据同步队列顺序，第二十行箭头函数执行，打印 "7"，同步队列完成清空
+// 进入下一个异步，Promise闭合，异步队列完成清空，函数执行完毕
+
+new Promise((resolve,reject)=>{
+    console.log("1") // 第二行Promise被创建后自动运行，打印 "1" ，后续执行resolve进入第五行箭头函数
+    resolve()
+}).then(()=>{
+    console.log("2") // 第六行打印 "2" ，后续创建新Promise对象
+    new Promise((resolve,reject)=>{
+        console.log("3") // 第七行Promise被创建后立即执行，代码进入第八行，打印 "3" 
+        resolve()
+    }).then(()=>{
+        console.log("4") 第十二行打印 "4" 
+    }).then(()=>{
+        console.log("5") 
+    }).then(()=>{
+        console.log("6")
+    }).then(()=>{
+        console.log("7")
+    })
+}).then(()=>{
+    console.log("8") // 第一个promise后打印 "8"
+    Promise.resolve().then(()=>{
+        console.log(9)
+    }).then(()=>{
+        console.log(10)
+    })
+}).then(()=>{
+    console.log("11")
+}).then(()=>{
+    console.log("12")
+})
+
+
+# 33、说说MutationObserver的应用场景有哪些？
+
+https://github.com/haizlin/fe-interview/issues/2710
+
+# 34、getComputedStyle和element.style有什么不同？
+
+element.style 只能获取内联样式属性
+getComputedStyle() 可以获取所有样式属性
+
+# 35、使用js写一个方法生成0000-9999一万个数字（4位数）
+
+Array.from({ length: 10000 }, (_, i) => `${i}`.padStart(4, 0));
+
+# 36、动态加载的li如何绑定事件？
+
+var item1 = document.getElementById("id1");
+var item2 = document.getElementById("id2");
+var item3 = document.getElementById("id3");
+
+document.addEventListener("click", function (event) {
+  var target = event.target;
+  switch (target.id) {
+    case "id1":
+      document.title = "事件委托";
+      break;
+    case "id2":
+      location.href = "github.com";
+      break;
+    case "id3": alert("hi");
+      break;
+  }
+})
+
+ul.addEventListener('click', function (e) {
+var target = e.target
+if (target.tagName.toLowerCase() === "li") {
+console.log('事件处理')
+}
+})
+
+# 37、ArrayBuffer和Blob有什么区别？
+
+ArrayBuffer 只读,Blob 可写
+
+Blob 用于操作二进制文件
+ArrayBuffer 用于操作内存
+
+# 38、Array(3)和Array(3, 4)的区别是什么？
+
+console.log(Array(3))
+console.log(Array(3, 4))
+
+console.log(new Array(3))
+console.log(new Array(3, 4))
+
+console.log(Array.of(3))
+console.log(Array.of(3, 4))
+
+
+Array和new Array的执行结果一样
+Array.of(3) => [3] 创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。
+
+# 39、随机生成一个指定长度的验证码
+
+默认长度为10，同是可以指定长度
+该验证码同时包含数字、大写字母、小写字母、特殊字符
+
+function randomCode(len) {
+    const allStr = 'azxcvbnmsdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789.*&^%$#@!~';
+    let code = '';
+    for (let index = 0; index < len; index++) {
+        code += allStr.charAt(Math.floor(Math.random() * 72));
+    }
+    return code;
+}
+randomCode(5)
+"zu%I8"
+
+# 40、浏览器中window.length的结果是什么？为什么？
+
+0 
+
+因为window.length表示当前页面中存在的frame或者iframe的数量，不存在就是0。
+
+# 41、你有用过哪些模板引擎？你觉得哪个好用？为什么？
+
+
+    dot.js art-templete ejs
+
+# 42、cookie的值可以设置为中文吗？为什么？如果可以怎么设置？
+
+可以,需要注意转码问题
+
+# 43、什么情况下会出现js阻塞？
+
+
+    未在script 使用 async delay 属性且不是body的最后一个标签
+    ajax 使用了同步
+
+# 44、怎样做到js无阻塞加载？
+
+    js 资源放在最后
+    script标签属性 delay async
+
+# 45、写一个方法，当复制页面中的内容时，同时把版权信息也复制上
+
+https://github.com/haizlin/fe-interview/issues/2771
+
+# 46、在多个页面之间需要传递参数，你是如何传递这些参数的？
+
+localstorage session cookie url参数
+
+使用HTML5新增的postMessage方法
+
+# 47、写一个方法对对象中的key进行排序
+
+Object.prototype.sortedKeys = function() {
+    const thisKeys = []
+    for (const key in this) {
+        if (Object.prototype.hasOwnProperty.call(this, key)) {
+            thisKeys.push(key)
+        }
+    }
+    thisKeys.sort()
+    return thisKeys
+}
+
+a = {name: 'name', aName: 'aname', zName: 'zname'}
+a.sortedKeys()
+// ["aName", "name", "zName"]
+
+# 48、使用js写一个多文件上传的组件
+
+https://www.cnblogs.com/chengpanpan/p/7074794.html
+
+# 49、如何取消promise？
+
+Promise/A+标准规定了：原Promise对象跟新返回的对象状态一致。所以可以通过返回一个始终是pending状态的Promise对象来取消Promise。
+
+【所以可以通过返回一个始终是pending状态的Promise对象来取消Promise。】
+
+Promise.resolve().then(() => {
+  console.log(1)
+  return new Promise(()=>{}) // 返回“pending”状态的Promise对象
+}).then(() => {
+  // 后续的函数不会被调用
+  console.log(2)
+}).catch(err => {
+  console.log(err)
+}) // 只输出1
+
+# 50、写一个方法，计算有N个数（可重复），分别放到M个位置中，有多少种排列？
+
+https://github.com/haizlin/fe-interview/issues/2796
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 css题目（50）
 

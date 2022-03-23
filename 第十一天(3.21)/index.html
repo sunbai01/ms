@@ -1,21 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>十1</title>
-</head>
+<html>
 
+<head>
+  <title>11、小球自由落体</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+
+    html,
+    body {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
 
 <body>
 
-
 </body>
+<script>
+  //获取屏幕参数
+  var Height = window.innerHeight;
+  var Width = window.innerWidth;
 
-<style>
- </style>
+  // 创建canvas
+  var canvas = document.createElement("canvas");
+  canvas.setAttribute("id", "ball");
+  document.body.appendChild(canvas);
+  canvas.setAttribute("height", Height);
+  canvas.setAttribute("width", Width);
 
-<script type="text/javascript"></script>
+  var Ball;//创建实例
+  const STRATSPEED = 0;//初始速度
+  const ACCELERATION = 10;//加速度
+  const ANIMATESPEED = 0.5;//动画速度，数值越大运动越快，速度越小运动越慢
+
+  function initBall() {
+    //小球实例
+    Ball = {
+      color: "red",
+      radius: 20
+    }
+
+    Ball.y = Ball.radius;
+    Ball.x = Height / 2 + Ball.radius;
+    Ball.speed = STRATSPEED;
+
+    ctx.fillStyle = Ball.color;
+  }
+
+  function draw() {
+    ctx.beginPath();
+    ctx.arc(Width / 2, Ball.y, Ball.radius, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+
+  function render() {
+    // 小球落地前自由下落
+    if (Ball.y < Height - 2 * Ball.radius) {
+
+      ctx.clearRect(0, 0, Width, Height);
+
+      Ball.y += Ball.speed * ANIMATESPEED + 0.5 * ACCELERATION * Math.pow(ANIMATESPEED, 2);
+      Ball.speed += ACCELERATION * ANIMATESPEED;
+
+      draw();
+      
+    }
+
+  }
+
+  function animate() {
+
+    render();
+    window.requestAnimationFrame(animate);
+
+  }
+
+
+  if (canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    initBall();
+    draw();
+    animate();
+
+  }
+</script>
+
+<script>
+  window.onresize = function () {
+    Height = window.innerHeight;
+    Width = window.innerWidth;
+    canvas.setAttribute("height", Height);
+    canvas.setAttribute("width", Width);
+    initBall();
+    draw();
+  }
+</script>
 
 </html>
