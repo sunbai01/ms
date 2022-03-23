@@ -10,10 +10,145 @@ js题目（50）
 
 # 2、写一个方法判断数组内元素是否全部相同
 
-# 3、异步请求重试策略有哪些呢？
+const isSameArray = function (array) {
+  if (Array.isArray(array)) {
+    return new Set(array).size === 1;
+  }
 
-# 4、for in 和 for of 的区别？
+  return false;
+};
 
+去重
+
+# 3、for in 和 for of 的区别？
+
+for in 用于循环对象上可枚举的属性；（最好不要用于数组）
+for of 用于循环具有iterate接口的对象，如：数组、字符串、arguments、标签、日期对象、时间对象等；
+
+# *4、写一个方法实现promise失败后自动重试
+
+Promise.retry = (fun, limit = 5) => {
+    return new Promise((resolve, reject) => {
+        let _num = 1;
+        let _run = () => {
+          fun()
+          .then(res => {
+            resolve(res);
+          })
+          .catch(err => {
+            if(_num++ >= limit){
+              reject(err)
+            } else {
+                console.log('retry again')
+                _run()
+            }
+          })
+        }
+        _run()
+    })
+}
+
+let k = 0;
+function test() {
+    return new promise((resolve, reject) => {
+        if(++k >= 3) {
+          resolve(k)
+        } else {
+          reject('hhh')
+        }
+    })
+}
+
+# 5、ajax请求地址只支持http/https吗？能做到让它支持rtmp://等其它自定义协议吗？
+
+ajax只支持http/https协议，
+可以通过自定义http头来间接支持自定义协议
+
+# 6、举例说明js立即执行函数的写法有哪些？
+
+(function() {
+
+})()
+
+(function() {
+
+}())
+
+!(function(){
+
+})()
+
+!(()=>{
+
+})()
+
+# 7、如何避免JS浮点运算的精度问题（例：0.1+0.7=0.7999999999999999）
+
+可以利用Number.toLocaleString，默认最多保留3位有效小数
+
++(0.1 + 0.7).toLocaleString() // 0.8
++(0.1 + 0.2).toLocaleString() // 0.3
+
+(0.1 + 0.7).toLocaleString() => '0.8'
+
++'0.8' = 0.8
+
+# 8、ReferenceError和TypeError有什么区别？
+
+访问一个 未定义的变量 ReferenceError 
+
+TypeError 类型出错。
+
+# 9、一道变态题 Number.call.call(Number, undefined, 0) 等于什么？
+
+Number.call(Number, undefined, 0) 等于什么？
+Number.call.call(Number, undefined, 0) 等于什么？
+
+Number.call(Number, undefined, 0)
+= Number(undefined, 0)
+
+Number.call.call(Number, undefined, 0) 
+=  Number.call(undefined, 0)
+=  Number.call(0)
+
+# 10、获取浏览器当前页面的滚动条高度的兼容写法
+
+document.documentElement.scrollTop || document.body.scrollTop;
+
+# 11、js中的 undefined 和 ReferenceError: xxx is not defined 有什么区别？
+
+console // xxx is not defined 
+let a;
+
+
+console // undefined
+var a;
+
+# 12、请使用js实现商品的sku，并说说你的思路
+
+https://github.com/haizlin/fe-interview/issues/2598
+
+# 13、请使用js实现vue的diff算法
+
+todo：https://github.com/haizlin/fe-interview/issues/2602
+
+# 14、写一个单向链数据结构的 js 实现并标注复杂度
+
+https://github.com/haizlin/fe-interview/issues/2606
+
+# 15、用函数实现扑克牌排序
+
+https://github.com/haizlin/fe-interview/issues/2610
+
+# 16、模拟 localStorage 时如何实现过期时间功能
+
+https://github.com/haizlin/fe-interview/issues/2614
+
+# 17、请使用js实现一个秒表计时器的程序
+
+# 18、你用过Navigator.sendBeacon()吗？说说它有什么应用场景？
+
+# 19、
 
 css题目（50）
 
