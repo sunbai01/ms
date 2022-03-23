@@ -1273,9 +1273,13 @@ https://github.com/haizlin/fe-interview/issues/141
 代码抽离重用，模块化开发，多人合作。早期的IIFE方式，AMD,CMD，到今天的export/import，node端的commonjs
 
 
+算法题：
+
+1、
+2、
+
 todo: 
 
-算法题（2）
 
 vue双向绑定原理
 

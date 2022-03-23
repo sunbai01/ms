@@ -1290,12 +1290,146 @@ UTF-8编码：它是一种全国家通过的一种编码，如果你的网站涉
 
 算法题（3）
 
+1、将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+示例 1：
+输入：l1 = [1,2,4], l2 = [1,3,4]
+输出：[1,1,2,3,4,4]
+
+
+示例 2：
+
+输入：l1 = [], l2 = []
+输出：[]
+
+
+示例 3：
+
+输入：l1 = [], l2 = [0]
+输出：[0]
+
+// var l1 = [1,2,4], l2 = [1,3,4]
+// var mergeTwoLists = function(list1, list2) {
+//   var res;
+//   listnum = list1.concat(list2)
+//   res = listnum.sort();
+//   return res;
+// };
+
+// mergeTwoLists(l1, l2);
+
+var mergeTwoLists = function(l1, l2) {
+    let node = new ListNode(null)
+    let current = node
+    if(!l1) {
+      return l2
+    }
+    if(!l2) {
+      return l1
+    }
+    while (l1 || l2) {
+      if(l1 && l2) {
+        if(l1.val < l2.val) {
+          // 不能直接赋值对象，否则将会切断其与node的联系
+          // 所以要通过next赋值ss
+          current.next = l1
+          l1 = l1.next
+        } else {
+          current.next = l2
+          l2 = l2.next
+        }
+      }
+      else {
+        if (l1) {
+            current.next = l1
+            l1 = l1.next
+        } else if (l2) {
+            current.next = l2
+            l2 = l2.next
+        }
+      }
+      current = current.next
+    }
+  return node.next
+}
+
+2、移除元素
+
+输入：nums = [3,2,2,3], val = 3
+输出：2, nums = [2,2]
+解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。
+
+输入：nums = [0,1,2,2,2,3,0,4,2], val = 2
+输出：5, nums = [0,1,4,0,3]
+解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。
+
+// 双指针形式,一个一个往前换
+var removeElement = function(nums, val) {
+    const n = nums.length;
+    let left = 0;
+    for (let right = 0; right < n; right++) {
+        if (nums[right] !== val) {
+            nums[left] = nums[right];
+            left++;
+        }
+    }
+    return left;
+};
+
+var removeElement = function(nums, val) {
+    let len = nums.length;
+    let left = 0;
+    for(let right = 0; right< len; right++) {
+      if(nums[right] != val) {
+        nums[left] = nums[right];
+        left++;
+      }
+    }
+    return left;
+};
+
+3、实现 strStr() 函数。
+
+给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回  -1 。
+
+示例 1：
+
+输入：haystack = "hello", needle = "ll"
+输出：2
+
+示例 2：
+
+输入：haystack = "aaaaa", needle = "bba"
+输出：-1
+
+示例 3：
+
+输入：haystack = "", needle = ""
+输出：0
+
+我们可以让字符串 needle\textit{needle}needle 与字符串 haystack\textit{haystack}haystack 的所有长度为 mmm 的子串均匹配一次。
+
+var strStr = function(haystack, needle) {
+    const n = haystack.length, m = needle.length;
+    for (let i = 0; i + m <= n; i++) {
+        let flag = true;
+        for (let j = 0; j < m; j++) {
+            if (haystack[i + j] != needle[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            return i;
+        }
+    }
+    return -1;
+};
+
+
 
 
 todo: 
-
-
-算法题（3）
 
 手写 promise
 
