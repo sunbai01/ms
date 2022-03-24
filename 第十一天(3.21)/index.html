@@ -17,12 +17,15 @@
        <div class="box"></div>
    </div> -->
 
-  <p>测试 空格</p>
+  <!-- <p>测试 空格</p>
   <p class="p-letter-spacing">测试 空格</p>
   <p class="p-word-spacing">测试 空格</p>
   <p>测试<span class="span-letter-spacing"> </span>空格</p>
-  <p>测试<span class="span-word-spacing"> </span>空格</p>
+  <p>测试<span class="span-word- -->spacing"> </span>空格</p>
   <div class="haha">点我</div>
+  <div class="xx">test11</div>
+    <div class="xx">test22</div>
+    <div class="xx">test33</div>
 
 <pre>
 
@@ -45,13 +48,7 @@
 
 <script type="text/html" style="display:block">
 
-
-
-
   HAHAHA
-
-
-
 
 
   HAHA
@@ -60,9 +57,107 @@
   &lt;
   &gt;
 
-  
 </script>
 
+<p class="text">
+  The background is clipped to the foreground text.
+</p>
+
+<div class="wubianxing"></div>
+
+<div class="houdai">
+  <ul>
+    <li>nihao</li>
+    <li>nihao</li>
+    <li>nihao</li>
+  </ul>
+</div>
+
+<div class="text">
+  content
+  <div class="tips">tips</div>
+</div>
+
+你好<a>地球人</a>
+
+<div class="dialog">对话框</div>
+
+<div class="box-tip" data-title="lala">tips</div>
+
+<style>
+
+  .box-tip {
+     position:relative;
+     background-color: red;
+  }
+
+  .box-tip:hover {
+     content: attr(data-title);    
+     display: inline-block;
+     padding: 10px 14px;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     position: absolute;
+     top: -50px;
+     left: -10px;
+  }
+
+  .dialog {
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50px;
+  }
+
+  .dialog:after {
+    content: '';
+    width: 0;
+    height: 0;
+    margin: 20px auto;
+    border-bottom: 50px solid transparent;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid red; 
+  }
+
+  a[href=''], a:not(href) {
+    color: #ff3333;
+  }
+
+  .text {
+    background-color: red;
+  }
+
+  .tips {
+    display: none;
+  }
+
+  .text:hover .tips{
+    display: block;
+  }
+  
+  li + li {
+    margin-top: 20px;
+  }
+
+  .wubianxing {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    background-color: red;
+  }
+
+  .xx:not(:first-of-type){
+      color:red;
+  }
+
+  p {
+      background: linear-gradient(60deg, red, yellow, red, yellow, red);
+  }
+
+  .text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(0, 0, 0, .2);
+  }
 
 </style>
 
