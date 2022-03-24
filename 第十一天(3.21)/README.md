@@ -1,5 +1,414 @@
 html题目（50）
 
+# 1、说说元素上下层叠关系及七阶层叠关系
+
+正 z-index > z-index：auto or 0 > display：inline > float：浮动盒子 > block 块状水平盒子 > -z-index > 层叠上下文 background/border
+
+# 2、实现九宫格布局
+
+html
+
+# 3、你有使用过IE的条件注释吗？
+
+IE条件注释主要用于加载兼容低版本IE的脚本
+
+# 4、当网页放大或者缩小后如何让页面布局不乱？
+
+采用rem流式布局
+
+# 5、如何使用普通元素拥有像textarea元素一样缩放？
+
+contenteditable
+resize:both;
+
+# 6、在网格布局中都有哪些概念呢？比如：网格线
+
+    容器：采用网格布局的区域
+    项目：容器内部采用网格定位的子元素
+    行：容器里面的水平区域
+    列：容器里面的垂直区域
+    单元格：行和列的交叉区域
+    网格线：划分网格的线
+
+# 7、如何让`<p>测试 空格</p>`这两个词之间的空格变大？
+
+html
+
+letter-spacing和word-spacing这两个属性都用来添加他们对应的元素中的空白。
+letter-spacing添加字母之间的空白，而word-spacing添加每个单词之间的空白。
+word-spacing对中文无效
+
+# 8、怎样在文本框中禁用中文输入法？
+
+css
+ime-mode: disabled
+
+正则校验
+/^[\u2E80-\u9FFF]+$/
+
+# 9、说说html5手势检测原理是什么？
+
+手势检测的关键是用 touchstart，touchmove，touchend 三个事件对手势进行分解
+
+# 10、举例说明原生的html组件有哪些？
+
+<dialog>
+<progress>
+<video>
+<template>
+
+# 11、使用history路由方式时，你有自己动手配置过服务器端吗？为什么要配服务器端？怎么配？
+
+hash 只在当前URL内刷新，history支持多个URL
+
+history要请求服务器
+hash不请求服务器
+
+# 12、使用history路由方式时，你有自己动手配置过服务器端吗？为什么要配服务器端？怎么配？
+
+history路由会请求服务器，因此需要服务器配合返回一个固定的index.html页面
+
+以nginx配置为例：
+
+location / {
+  try_files $uri $uri/ /index.html;
+}
+
+以上面的 http://www.example.com/post 为例，$uri 会匹配到 post，nginx 发现 dist 目录下下面没有 post 这个文件，也没有 post 这个文件夹，所以最后会返回 dist 目录下的 index.html。这样，index.html 被浏览器加载之后，前端路由就会工作，将用户需要的资源加载出来。而我们 build 出来的 css，js 文件，由于可以被 nginx 正确找到，则不会受到影响。
+
+# 13、html5的Notification桌面通知如何请求权限？
+
+Notification.requestPermission(callback);
+
+# 14、html5的游戏引擎你了解多少？都有哪些比较好用的引擎呢？
+
+最近接了个小项目
+接触了一个游戏引擎 Phaser 主攻2D
+Phaser用的别家的内核把 自己加壳子
+
+其他的只是看过介绍
+
+# 15、请说说input的inputmode属性有什么应用场景？
+
+inputmode 全局属性 是一个枚举属性，它提供了用户在编辑元素或其内容时可能输入的数据类型的提示。它可以是以下值：
+
+"none"
+无虚拟键盘。在应用程序或者站点需要实现自己的键盘输入控件时很有用。
+"text"
+使用用户本地区域设置的标准文本输入键盘。
+"decimal"
+小数输入键盘，包含数字和分隔符（通常是“ . ”或者“ , ”），设备可能也可能不显示减号键。
+"numeric"
+数字输入键盘，所需要的就是0到9的数字，设备可能也可能不显示减号键。
+"tel"
+电话输入键盘，包含0到9的数字、星号（*）和井号（#）键。表单输入里面的电话输入通常应该使用 <input type="tel"> 。
+"search"
+为搜索输入优化的虚拟键盘，比如，返回键可能被重新标记为“搜索”，也可能还有其他的优化。
+"email"
+为邮件地址输入优化的虚拟键盘，通常包含"@"符号和其他优化。表单里面的邮件地址输入应该使用 <input type="email"> 。
+"url"
+为网址输入优化的虚拟键盘，比如，“/”键会更加明显、历史记录访问等。表单里面的网址输入通常应该使用 <input type="url"> 。
+如果没有设置这个属性，它的默认值是 "text"，表明使用本地的标准文本输入键盘。
+
+# 16、举例说明图片懒加载的方案有哪些？
+
+    利用 getBoundingClientRect() 这个 API 获取图片元素相对于视口的位置，来判断是否需要加载图片
+
+    利用 IntersectionObserverEntry接口 获取目标元素与容器的相交状态
+
+# 17、浏览器是如何解析html的？
+
+获得html文件后，浏览器的内核中负责HTML解析、布局、渲染的引擎就会开始工作。
+
+# 18、html如何启动本地的exe应用？
+
+一般采用自定义浏览器协议的方式实现,可跨平台.
+需要exe配合,修改目标机器的注册表.
+如果要检测客户端是否已经安装对应的程序,可配合custom-protocol-detection这个项目.
+
+# 19、如何实现前端代码实时预览效果？
+
+websocket
+
+# 20、你有使用过time标签吗？说说它的用途有哪些？
+
+首先time标签是h5的新属性，标签定义为公历的时间或日期。
+好处是time约束的日期或时间的编码方式满足机器可读的要求。
+
+# 21、你有使用过blockquote标签吗？说说它的用途有哪些？
+
+用于标记长的引用
+浏览器在 blockquote 元素前后添加了换行，并增加了外边距。
+
+# 22、你有使用过meter标签吗？说说它的用途有哪些？
+
+<meter> 标签定义已知范围或分数值内的标量测量。也被称为 gauge（尺度）。
+
+# 23、你有使用过template标签吗？说说它的用途有哪些？
+
+HTML内容模板（<template>）元素是一种用于保存客户端内容机制，该内容在加载页面时不会呈现，但随后可以(原文为 maybe)在运行时使用JavaScript实例化。
+
+将模板视为一个可存储在文档中以便后续使用的内容片段。虽然解析器在加载页面时确实会处理<template>元素的内容，但这样做只是为了确保这些内容有效；但元素内容不会被渲染
+
+# 24、如何使用纯html制作一个进度条？
+
+<progress value="70" max="100">70 %</progress>
+
+HTML中的progress () 元素用来显示一项任务的完成进度.虽然规范中没有规定该元素具体如何显示,浏览器开发商可以自己决定,但通常情况下,该元素都显示为一个进度条形式.
+
+# 25、你有使用过output标签吗？说说它的用途有哪些？
+
+执行计算然后在 元素中显示结果
+
+<input value="i"> </input> + <input value="j"> </input> = <output xx="i + j"></output>
+
+# 26、DOM节点的根节点是不是body？
+
+根节点是HTML
+
+文档对象模型 (DOM) 是HTML和XML文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将web页面和脚本或程序语言连接起来。在文档中的每个元素— 包括整个文档，文档头部， 文档中的表格，表头，表格中的文本 — 都是文档所属于的文档对象模型（DOM）的一部分，因此它们可以使用DOM和一个脚本语言如 JavaScript，来访问和处理。
+文档对象模型（DOM）提供了对同一份文档的另一种表现，存储和操作的方式。 DOM是web页面的完全的面向对象表述，它能够使用如 JavaScript等脚本语言进行修改。
+DOM的根节点是document对象，即html标签。
+
+# 27、DOM节点的种类有哪些？
+
+可以用node.nodeType来获取节点类型
+
+element_node  元素类型
+text_node  文本类型
+cdata_section_node
+processing_instruction_node
+comment_node
+document_node  document类型
+document_type_node  doctype类型
+document_fragment_node  documentfragment类型
+
+# 28、如何扩大CheckBox点击区域
+
+用 label 包裹，扩大 label 尺寸
+
+# 29、如何在网页中嵌入公司地址的地图？
+
+<script src='http://api.map.baidu.com/api?v=2.0&ak=BG9Wtw7egUbIQHPjG9ayOLQO'>
+</script>
+
+<script> 
+(function(){ 
+  var map = new BMap.Map("container");
+  //设置底图 map.centerAndZoom("深圳", 18);
+  //初始化地址，查询的地址所在市 map.enableScrollWheelZoom();
+  //启用滚轮放大缩小，默认禁用 map.enableContinuousZoom();
+  //启用地图惯性拖拽，默认禁用
+
+  var localSearch = new BMap.LocalSearch(map);
+  localSearch.enableAutoViewport(); //允许自动调节窗体大小
+
+  function searchByStationName() {
+    map.clearOverlays();//清空原来的标注
+    var keyword = "深圳市罗湖区红桂路2068号红桂大厦一楼";//查询的详细地址
+    localSearch.setSearchCompleteCallback(function (searchResult) {
+    var poi = searchResult.getPoi(0);
+    map.centerAndZoom(poi.point, 18);
+    var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat)); // 创建标注，为要查询的地方对应的经纬度
+    map.addOverlay(marker);
+    var content = keyword;
+    var infoWindow = new BMap.InfoWindow("
+
+    " + content + "
+    ");
+    marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    });
+    localSearch.search(keyword);
+    }
+    searchByStationName();
+}())
+</script>
+
+todo
+
+
+# 30、如何在网页中打开腾讯QQ？
+
+window.open('http://wpa.qq.com/msgrd?v=3&uin=1186&site=qq&menu=yes')
+
+
+# 31、页面布局时你使用最多的标签是什么？div吗？在什么情况下会使用到div？
+
+整体布局用<header> <main> <aside> <footer>
+细分布局用 <div>
+
+# 32、怎样在`<pre>`标签内不转义<和>符号（原样输出html标签）？
+
+空格不行
+
+# 33、pre与xmp标签有什么区别？
+
+xmp的标签，会复把抱在内部的html片段当作字符串输出（此标签已废弃）
+<pre></pre> 标签，可以在保留原来文本格式的基础制上让文本在页面上显示出来
+<pre> 标签中的特殊符号被转换为符号实体，比如 "&lt;" 代表 "<"，"&gt;" 代表 ">"。
+
+xmp
+<xmp> <div>xmp</div> </xmp>
+//输出
+<div>xmp</div>
+
+pre
+<pre> <strong>pre</strong> </pre>
+//输出
+加粗的pre
+
+# 34、网页打印与标准纸张换算时，cm和px是如何换算的？
+
+(function(){
+  // 创建一个1cm宽的元素插入到页面，然后坐等出结果
+  let div = document.createElement("div");
+  div.id = "cm";
+  div.style.width = "1cm";
+  document.querySelector("body").appendChild(div);
+  // 原生方法获取浏览器对元素的计算值
+  let cm1 = document.getElementById("cm").getBoundingClientRect();
+  console.log(cm1);
+  return cm1.width;
+})()
+
+1cm = 37.7890625
+
+# 35、你有使用过html5的rt标签吗？它有什么应用场景？
+
+<ruby>
+  汉 <rt>Hàn</rt>
+  字 <rt>Zì</rt>
+</ruby>
+
+# 36、html5的video如何附带字幕？
+
+<video controls width="400" height="300">
+  <source src="../hangge.mp4" type="video/mp4">
+  <track src="hangge.vtt" srclang="zh" kind="subtitles" label="中文" default>
+  <track src="hangge_en.vtt" srclang="en" kind="subtitles" label="English">
+</video>
+
+# 37、html中如何使用svg？
+
+https://github.com/haizlin/fe-interview/issues/2456
+
+# 38、你有使用过webp的图片格式吗？
+
+https://github.com/haizlin/fe-interview/issues/2460
+
+# 39、webp与jpg、png比较，它有什么优劣势？如何选择？
+
+优：
+
+  更优的图像压缩算法，更小的图片体积
+
+  肉眼识别无差异的图片质量
+
+  支持有损无损压缩
+
+  支持动画，透明
+
+  色彩丰富的 24-bit 颜色数
+
+劣：
+
+  存在兼容性问题
+
+选择：
+
+  当 图片较少 体积不大 且存在兼容性问题时，兼容性方法处理起来较复杂，可以选择传统模式
+
+  当 图片较多 且不存在兼容性问题或者兼容性方法处理起来比较简单时，使用webp格式
+
+兼容性处理：
+
+1.通过picture标签进行选择判断
+
+<picture>
+    <source srcset="img/pic.webp" type="image/webp">
+    <source srcset="img/pic.jpg" type="image/jpeg">
+    <img src="img/pic.jpg">
+</picture>
+
+该种方法要求在每个要请求webp图片的标签下都要通过picture标签来进行兼容性处理，
+同时注意该标签在IE的兼容性并不是很好，不过已经比webp的兼容性好一些。
+
+
+2.通过服务端判断请求头中的Accept的值判断是否支持webp
+
+通过HTTP request header中是否存在Accept: image/webp来判断，
+这种方法的缺点在于：很多时候我们的图片等静态资源都会放到CDN服务器上，在这个层面加上判断webp的逻辑会更麻烦一些
+
+3、由浏览器端判断是否支持WebP格式
+
+if(document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0){
+   //  该浏览器支持WebP格式的图片
+}
+
+该种方法的原理为：
+
+HTMLCanvasElement.toDataURL() 方法返回一个包含图片展示的 data URI 。可以使用 type 参数其类型，默认为 PNG 格式。
+
+1.如果画布的高度或宽度是0，那么会返回字符串“data:,”。
+
+2.如果传入的类型非“image/png”，但是返回的值以“data:image/png”开头，说明该传入的类型是不支持的。
+
+3.Chrome支持“image/webp”类型。
+
+# 40、如何让table的边框双线变单线？
+
+border-collapse：属性，为表格设置合并边框模型。
+
+# 41、input如何在各个浏览器下保持UI统一？
+
+reset样式
+
+# 42、浏览器是怎么对HTML5的离线储存资源进行管理和加载的
+
+
+    在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+    离线的情况下，浏览器就直接使用离线存储的资源。
+
+
+# 43、说说你对Media Source Extensions(MSE)的理解，它解决了什么问题呢？
+
+Media Source Extensions 允许JavaScript动态地为<audio>和<video>创建媒体流，而不再只能是引用一个视频文件的url。这样就极大地丰富了前端对音视频的处理能力，也赋予了其更多灵活性。
+
+# 44、切页面时，每次都动手刷新看效果很麻烦，如果要让你写一个实时刷新预览的工具你该怎么写？
+
+
+    node包http, scoket.io建立服务
+    静态页面增加webSocket，服务器推送后执行刷新页面
+    fs包，fs.watch 监听静态页面，文件变更后推送消息
+
+或者 直接使用browser-sync
+
+# *45、图片上传时实现本地预览功能的原理是什么？
+
+通过HTML5 File API读取用户上传的图片，生成一个image对象显示到页面
+
+# 46、websocket和http有什么区别？
+
+WebSocket是双向的，在客户端-服务器通信的场景中使用的全双工协议，与HTTP不同，它以ws://或wss://开头。
+HTTP是单向的，客户端发送请求，服务器发送响应。
+
+# 47、websocket和socket有什么区别？ 
+
+1.Socket 是传输控制层的接口。用户可以通过 Socket 来操作底层 TCP/IP 协议族通信。
+2.WebSocket 是一个完整应用层协议。
+3.Socket 更灵活，WebSocket 更易用。
+4.两者都能做即时通讯
+
+# 48、websocket是如何做心跳检测、数据加密、身份验证的？
+
+# 49、http和websocket能共用一个端口吗？为什么？
+
+# 50、websocket握手阶段是通过什么协议传输的？
+
+HTTP
+
+
 js题目（50）
 
 # 1、说说防止重复发送ajax请求的方法有哪些？各自有什么优缺点？
@@ -462,24 +871,29 @@ Promise.resolve().then(() => {
 https://github.com/haizlin/fe-interview/issues/2796
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 css题目（50）
+
+# 1、如何让IE6支持min-width和max-width？
+
+利用IE特有的css语法 
+
+.className {
+    max-width:620px;
+    min-width:1px;
+    _width:expression(this.scrollWidth > 620 ? "620px":(this.scrollWidth < 1? "1px":"auto"));
+}
+
+# 2、如何解决IE6浮动时产生双倍边距的BUG？
+
+
+
+ 1.当块级元素有浮动样式的时候，给元素添加margin-left和margin-right样式，在ie6下就会出现双倍边距
+ 2.给当前元素添加样式，使当前元素不为块，如：display:inline;display:list-item 这样在元素浮动的时候就不会在ie6下面产生双倍边距的问题了
+
+# 3、 你知道什么是面向对象的css（oocss）吗？有没有实践过？
+
+
+
 
 周级综合题目（50）
 

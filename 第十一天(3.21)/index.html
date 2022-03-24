@@ -1,105 +1,212 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>11、小球自由落体</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-size: 0;
-    }
-
-    html,
-    body {
-      position: relative;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
 </head>
-
 <body>
 
+  <!-- <div class="container">
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+       <div class="box"></div>
+   </div> -->
+
+  <p>测试 空格</p>
+  <p class="p-letter-spacing">测试 空格</p>
+  <p class="p-word-spacing">测试 空格</p>
+  <p>测试<span class="span-letter-spacing"> </span>空格</p>
+  <p>测试<span class="span-word-spacing"> </span>空格</p>
+  <div class="haha">点我</div>
+
+<pre>
+
+
+
+
+  HAHAHA
+
+
+
+
+
+  HAHA
+
+  <strong>pre</strong>
+  &lt;
+  &gt;
+
+</pre>
+
+<script type="text/html" style="display:block">
+
+
+
+
+  HAHAHA
+
+
+
+
+
+  HAHA
+
+  <strong>pre</strong>
+  &lt;
+  &gt;
+
+  
+</script>
+
+
+</style>
+
 </body>
+<!-- 
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+
+  html,
+  body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+</style> -->
+<style>
+
+.haha{
+  position:relative;
+}
+
+.haha::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}
+
+<style>
+  .p-letter-spacing {
+    letter-spacing: 10px;
+  }
+  .p-word-spacing {
+    word-spacing: 10px;
+  }
+  .span-letter-spacing {
+    letter-spacing: 10px;
+  }
+  .span-word-spacing {
+    word-spacing: 10px;
+  }
+</style>
+
+<!-- <style>
+   .container::after{
+       content: "";
+       display: block;
+       clear: both;
+   }
+   .box{
+       float: left;
+       width: 32%;
+       padding-bottom: 32%;
+       background-color: red;
+       margin-bottom: 1%;
+   }
+   .box:not(:nth-child(3n)){
+       margin-right: 1%;
+   }
+</style> -->
 <script>
-  //获取屏幕参数
-  var Height = window.innerHeight;
-  var Width = window.innerWidth;
+  // //获取屏幕参数
+  // var Height = window.innerHeight;
+  // var Width = window.innerWidth;
 
-  // 创建canvas
-  var canvas = document.createElement("canvas");
-  canvas.setAttribute("id", "ball");
-  document.body.appendChild(canvas);
-  canvas.setAttribute("height", Height);
-  canvas.setAttribute("width", Width);
+  // // 创建canvas
+  // var canvas = document.createElement("canvas");
+  // canvas.setAttribute("id", "ball");
+  // document.body.appendChild(canvas);
+  // canvas.setAttribute("height", Height);
+  // canvas.setAttribute("width", Width);
 
-  var Ball;//创建实例
-  const STRATSPEED = 0;//初始速度
-  const ACCELERATION = 10;//加速度
-  const ANIMATESPEED = 0.5;//动画速度，数值越大运动越快，速度越小运动越慢
+  // var Ball;//创建实例
+  // const STRATSPEED = 0;//初始速度
+  // const ACCELERATION = 10;//加速度
+  // const ANIMATESPEED = 0.5;//动画速度，数值越大运动越快，速度越小运动越慢
 
-  function initBall() {
-    //小球实例
-    Ball = {
-      color: "red",
-      radius: 20
-    }
+  // function initBall() {
+  //   //小球实例
+  //   Ball = {
+  //     color: "red",
+  //     radius: 20
+  //   }
 
-    Ball.y = Ball.radius;
-    Ball.x = Height / 2 + Ball.radius;
-    Ball.speed = STRATSPEED;
+  //   Ball.y = Ball.radius;
+  //   Ball.x = Height / 2 + Ball.radius;
+  //   Ball.speed = STRATSPEED;
 
-    ctx.fillStyle = Ball.color;
-  }
+  //   ctx.fillStyle = Ball.color;
+  // }
 
-  function draw() {
-    ctx.beginPath();
-    ctx.arc(Width / 2, Ball.y, Ball.radius, 0, 2 * Math.PI);
-    ctx.fill();
-  }
+  // function draw() {
+  //   ctx.beginPath();
+  //   ctx.arc(Width / 2, Ball.y, Ball.radius, 0, 2 * Math.PI);
+  //   ctx.fill();
+  // }
 
-  function render() {
-    // 小球落地前自由下落
-    if (Ball.y < Height - 2 * Ball.radius) {
+  // function render() {
+  //   // 小球落地前自由下落
+  //   if (Ball.y < Height - 2 * Ball.radius) {
 
-      ctx.clearRect(0, 0, Width, Height);
+  //     ctx.clearRect(0, 0, Width, Height);
 
-      Ball.y += Ball.speed * ANIMATESPEED + 0.5 * ACCELERATION * Math.pow(ANIMATESPEED, 2);
-      Ball.speed += ACCELERATION * ANIMATESPEED;
+  //     Ball.y += Ball.speed * ANIMATESPEED + 0.5 * ACCELERATION * Math.pow(ANIMATESPEED, 2);
+  //     Ball.speed += ACCELERATION * ANIMATESPEED;
 
-      draw();
+  //     draw();
       
-    }
+  //   }
 
-  }
+  // }
 
-  function animate() {
+  // function animate() {
 
-    render();
-    window.requestAnimationFrame(animate);
+  //   render();
+  //   window.requestAnimationFrame(animate);
 
-  }
+  // }
 
 
-  if (canvas.getContext) {
-    var ctx = canvas.getContext("2d");
-    initBall();
-    draw();
-    animate();
+  // if (canvas.getContext) {
+  //   var ctx = canvas.getContext("2d");
+  //   initBall();
+  //   draw();
+  //   animate();
 
-  }
+  // }
 </script>
 
 <script>
-  window.onresize = function () {
-    Height = window.innerHeight;
-    Width = window.innerWidth;
-    canvas.setAttribute("height", Height);
-    canvas.setAttribute("width", Width);
-    initBall();
-    draw();
-  }
+  // window.onresize = function () {
+  //   Height = window.innerHeight;
+  //   Width = window.innerWidth;
+  //   canvas.setAttribute("height", Height);
+  //   canvas.setAttribute("width", Width);
+  //   initBall();
+  //   draw();
+  // }
 </script>
 
 </html>
