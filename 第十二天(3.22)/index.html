@@ -7,13 +7,72 @@
     <title>十2</title>
 </head>
 
+<style>
+.longen{
+width:300px;
+height:100px;
+border:5px solid #09F;
+position:relative;
+background-color:#FFF;
+}
+.longen:before,.longen:after{
+content:"";display:block;
+border-width:20px;
+position:absolute; bottom:-40px;
+left:100px;
+border-style:solid dashed dashed;
+border-color:#09F transparent transparent;
+font-size:0;
+line-height:0;
+}
+.longen:after{
+bottom:-33px;
+border-color:#FFF transparent transparent;
+}
+</style>
 
 <body>
+
+<div class="longen">
+	css3气泡框
+</div>
+
+<div class="box"></div>
+
+<div class="parallelogram"></div>
+
+<style>
+p {color: blue};
+.p1 {color: red}
+.p2 {color: green}
+</style>
+
+<p class="p1">红色字体</p>
+<p class="p2">绿色字体</p>
 
 
 </body>
 
 <style>
+	.parallelogram {
+  margin: 30px;
+  width: 200px;
+  height: 100px;
+  border: 1px solid slateblue;
+  transform: skew(-20deg);
+}
+	.box {
+		width: 200px;
+		height: 200px;
+		border: 1px solid grey;
+		background: linear-gradient(
+			45deg,
+			transparent 49.5%,
+			deeppink 49.5%,
+			deeppink 50.5%,
+			transparent 50.5%
+		);
+	}
  </style>
 
 <script type="text/javascript"></script>
