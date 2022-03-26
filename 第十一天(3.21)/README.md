@@ -1808,16 +1808,6 @@ box-sizing: border-box; => IE盒子宽高
         cookie的正确操作比较困难
     webStorage：H5新增的API，数据存放于客户端本地内存中；sessionStorage和localStorage操作一致，而sessionStorage的有效期限为一次session会话（即一个tab页从打开到关闭之间的时间段），localStorage是没有失效时间的（即永久保存，删除需要手动处理）；
 
-todo
-# 算法题3
-
-
-1、
-
-2、
-
-3、
-
 
 
 

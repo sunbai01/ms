@@ -1581,6 +1581,4 @@ nan
 x只是声明了并未赋值，默认值为undefined, x+y ==> undefined + 1 = NaN
 
 
-算法题（3）
-
 
