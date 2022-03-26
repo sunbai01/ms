@@ -253,4 +253,206 @@ link 标签的 rel='preload'
 
 # 周级汇总题目
 
-# 1、
+# 1、描述下什么是域名解析？简述它的基本过程
+
+域名解析一般是发生在用户在浏览器输入一个网址，然后浏览器会调用DNS域名解析对该网址进行解析，得到真实IP并发送访问请求。
+
+具体的解析过程，一般首先是在当前主机对应的域名服务器的数据库中查找是否存在该域名，若不存在，依次向上级域名服务器进行查找，直到根域名服务器或者查找到域名对应的IP。
+然后服务器将获取到的真实IP返回给主机。
+
+# 2、请说说json和jsonp的区别？
+
+
+    json: 轻量级的数据格式
+    jsonp: 解决跨域的一种方式
+
+
+ json是一种数据结构
+jsonp是一种跨域技术:
+跨域是后端收到了请求并处理返回给前端,但浏览器发现跨域了抛出错误中止了请求,
+因为script标签支持跨域运行, 后端根据前端请求动态生成*.js文件,前端构造script标签加载js文件,Js文件动态执行函数,将数据注入
+
+例子:
+
+前端发送请求:url: xxx/xxx?jsonpCallBack=_callback123&&jsonpId = 123
+前端动态在window下构造函数
+window._callback123=(data) => // dosomething
+后端构造js文件, 123.js
+window._callback123({  userName: 'xxxx' })
+前端动态插入<script src="xxxx/xxx/123.js"></script>
+
+
+# 3、行内元素和块级元素有什么区别，如何相互转换？
+
+一般通过display属性来区分块级元素和行内元素，block代表块级元素，inline代表行内元素。
+块级元素：
+1、内容独占一行。
+2、width和height可以设置。
+3、margin和padding也可以设置。
+行内元素：
+1、内容不独占一行。
+2、width由内容撑开，不可设置。
+3、竖直方向marigin和padding不可设置，水平方向可设置。
+4、有多个行内元素，则会排列在一行，直到父容器放不下才会换行。
+块级元素和行内元素通过修改display属性可相互切换。
+
+# 4、说说HTML中的<html>标签有什么作用？
+
+<html> 元素定义了整个 HTML 文档。
+这个元素拥有一个开始标签 <html>，以及一个结束标签 </html>，是为了告诉浏览器html从哪里开始，从哪里结束
+元素内容是另一个 HTML 元素（body 元素）。
+
+ 可以通过设置lang属性来设置页面的语言，常用的有zh和en
+
+ html 对应 js的 document.documentElement
+head 对应 js的 document.head
+body 对应 js的 document.body
+所有的script 对应js的 document.scripts
+所有的img 对应js的 document.imgs
+
+# 5、域名解析它有哪几种方式？
+
+域名的解析也分很多种，以下列出的是我用的比较多的几种类型。
+A类型
+
+A类型可以将主机记录（二级域名）指向一个ipv4类型的ip地址；但是需要注意的是，该类型不能在ip地址后加上端口；比如：
+
+主机记录：xx.test.com
+记录值：aa.bb.cc.dd
+
+上述记录的意思就是访问xx.test.com的时候实际上是访问ip地址为aa.bb.cc.dd的主机；但是如果在ip地址后加上端口号：
+
+记录值：aa.bb.cc.dd:port
+
+以上的记录值是非法的；其实我就是想将某个二级域名直接解析到主机的某个端口，然后尝试无果……
+CNAME类型
+
+CNAME类型的记录可以将当前记录指向另一个域名；需要注意的是仅仅是域名，不能在域名的后面添加路径或参数！！！
+
+合法记录值：
+
+xx.test.com
+test.com
+www.test.com
+
+非法记录值：
+
+test.com/path/
+test.com/123.html
+test.com?a=b
+
+URL转发
+
+URL转发就是将当前记录跳转到另一个url地址，因此只要是url地址可以访问的，都可以用来转发；不过URL转发还分为显性URL转发和隐性URL转发，它们的区别在于：
+
+显性URL转发使用301永久重定向，即地址栏上的url地址会换成转发后的url地址，而非当前记录使用的url地址；而隐性URL转发使用的是302临时重定向，访问时浏览器地址栏依然是当前记录使用的url地址，但是实际访问的是转发的url地址。
+
+# 6、 写个方法，找出指定字符串中重复最多的字符及其长度
+
+todo
+
+# 7、怎么实现移动端的边框0.5px？
+
+一种是通过transform中的scale
+
+    border: 1px solid red;
+    transform: scaleY(.5);
+
+
+
+一种是通过meta viewport中设置init-scale为0.5
+<meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+
+一种是设置hr
+
+    border: 0px;
+    border-bottom: 1px solid red;
+
+
+
+  .bg-half {
+			height: 1px;
+			background-image: linear-gradient(0deg, red 50%, transparent 50%);
+		}
+
+
+# 8、如何在HTML5页面中嵌入音频和视频？
+
+基于<video><audio>两个标签插入，设置src即可
+
+# 9、Web安全色所能够显示的颜色种类有多少种？
+
+
+    概念
+    所谓web安全色，在不同的平台展示的效果和预期一致。举个例子，在mac和window展示的效果一致。
+    公式
+    WEB安全色的RGB值均为51的倍数。举个例子，rgb(0,0,51),rgb(0,0,102), rgb(0,0,153) 都是web安全色。
+    种类
+    216，某些平台只支持216种颜色。
+
+为什么是51倍数，为什么某些平台只支持216种颜色，有空再研究。
+
+# 10、说说你对作用域链的理解
+
+作用域链指的是代码执行时,
+查找变量的规则,
+先在当前自身的作用域查找,
+找不到在往上级作用域查找,
+查不到的话直至全局环境,
+当然全局环境不能访问局部作用域的变量
+
+
+
+# 11、CSS中的calc()有什么作用？
+
+calc使得开发者能够使用四则运算表达式来填写CSS属性。
+
+坑： 当使用calc的时候，运算符号 左右需要有空格的哦，否则，属性不生效。例如：
+
+width: calc(100% - 30px);
+
+<div class="d0">
+    <div class=d1""></div>
+</div>
+
+.d0{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+}
+.d1{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
+
+# 12、除了音频和视频，HTML5还支持哪些媒体标签？
+
+<source> 一般用于定义不同的媒体资源，由于各浏览器对视频格式的支持不同，可以通过video/audio内嵌source来链接多种视频格式，实现浏览器兼容
+
+<audio controls>
+  <source src="test.mp3" type="audio/mp3" />
+  <source src="test.ogg" type="audio/ogg" />
+</audio>
+
+<track> 用于给音频和视频文件添加字幕文件
+
+<video width=”450″ height=”340″ controls>
+     <source src=”W3Cschool.mp4″ type=”video/mp4″>
+     <source src=”W3Cschool.ogg” type=”video/ogg”>
+     <track kind=”subtitles” label=”English” src=”W3Cschool_en.vtt” srclang=”en”></track>
+</video>
+
+<canvas> 用于自定义图形，通过css/js自行绘制图像
+<canvas width="200px" height="200px" style="border:1px solid black;">
+<embed> 可用于显示外嵌的内容：例如媒体对象，插件
+<embed height="100" width="100" type="audio/mp3" src="src="test.mp3".mp3" />
+<object> 大致同embed，不过h5之前就支持
+<object height="100" width="100" data="src="test.mp3".mp3"></object>
+
+
