@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="password" id="password" />
+    <button id="show">显示/隐藏密码</button>
+
+    <div><h1>标题</div></h1>
+
+    <div><a>标题</div></a>
+
+    <p>孙柏
+        <div>sun bai</div>
+    </p>
+
+    <input type="password" autofocus="true" />
+    <input type="password"/>
+    <input type="password"/>
+
+    <ol>
+      <li>咖啡</li>
+      <li>牛奶</li>
+      <li>茶</li>
+    </ol>
+
+    <div class="wrap">
+    <pre>
+        html
+        zidonghuanhangdvsdcfsdsdfcsdfs \t &emsp;
+    </pre>
+</div>
+
+<div class="parent-img">
+    <img class="img" src="./name.png">
+    <!-- 只有img标签可以这样用，其他行内元素的垂直居中还得再练 -->
+    <!-- <span class="img">haha</span> -->
+</div>
+
+<div class="menu">
+    
+</div>
+
+<div class="box">
+    <div class="left"></div>
+    <div class="content"></div>
+    <div class="right"></div>
+</div>
+
+<div class="kuan">
+    <div class="zi"></div>
+</div>
+
+
+</body>
+<style>
+    .kuan {
+        width: 200px;
+        height: 100px;
+        background-color: blue;
+    }
+
+    .zi {
+        width: 20%;
+        padding: 20%;/* padding百分比相对父元素宽度计算 */
+        height: 0;
+        /* 避免被内容撑开多余的高度 */
+        background-color: blue;
+    }
+
+    .box {
+        display: flex;
+        height: 60px;
+    width: 100%;
+    }
+
+    .left {
+        flex: 60px 0;
+        background-color: red;
+    }
+
+    .content {
+        flex: 1;
+        background-color: yellow;
+    }
+
+    .right {
+        flex: 60px 0;
+        background-color: blue;
+    }
+
+    .menu{
+        width: 25px;
+        height: 3px;
+        border-top: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        padding: 5px 0;
+        background-clip: content-box;
+        background-color: #000;
+    }
+
+    .parent-img {
+        position: relative;
+    }
+    .img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+
+    pre {
+        white-space:pre-wrap;
+        white-space:-moz-pre-wrap;
+        white-space:-pre-wrap;
+        white-space:-o-pre-wrap;
+        word-wrap:break-word;
+    }
+
+    .wrap {
+        width: 200px;
+        border: 1px solid red;
+    }
+    ol{
+        display: flex;
+        flex-wrap: wrap-reverse
+    }
+    li{
+        width: 100%
+    }
+</style>
+<script>
+    {
+        let show = document.querySelector('#show');
+        let password = document.querySelector('#password')
+        show.onclick = () => {
+            if(password.getAttribute('type') !== 'text'){
+                password.setAttribute('type','text')
+            }else{
+                password.setAttribute('type','password')
+            }
+        }
+        
+    }
+</script>
+</html>
