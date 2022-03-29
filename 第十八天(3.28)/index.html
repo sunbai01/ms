@@ -112,8 +112,55 @@
     <div class="right">fwefw</div>
 </div>
 
+<div class="item-item">
+    <span class="item">aaa</span>
+    <span class="item">bbb</span>
+</div>
+
+<div class="div3">
+    <div class="item111">item1</div>
+    <div class="item222">item2</div>
+</div>
+
+<div class="wang"></div>
 </body>
 <style>
+    .wang {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin:100px auto;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+    }
+
+    .wang::before{
+        position: absolute;
+        content: "";
+        left:49px;
+        top:0;
+        width: 2px;
+        height: 100px;
+        background-color: red;
+    }
+    
+    .wang::after{
+        position: absolute;
+        content:"";
+        left:0;
+        top:48px;
+        width: 100px;
+        height: 2px;
+        background-color: red;
+    }
+
+    .item{
+        font-size:initial;
+    }
+    .item-item {
+        font-size: 0px;
+  /*float: left;*/
+}
     .flo {
         
     }

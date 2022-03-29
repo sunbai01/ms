@@ -402,7 +402,252 @@ flex-grow:1;
 flex-shrink:1;
 flex-basis:0%;
 
-# 11、
+# 11、flex:1与flex:auto有什么区别？
+
+# 12、请说说css常用的单位和不常用的单位分别有哪些？
+
+常用: px, em, rem, vw, vh, %
+不常用: vmin, vmax, ex, ch
+
+# 13、如何取消同级li的最后一个li标签的右边距？
+
+
+li {
+  margin-right: 10px;
+}
+
+li:last-of-type {
+  margin-right: initial;
+}
+
+
+也可以直接给除了最后一个li以外的元素设置右边距
+
+li:not(:last-of-type) {
+	margin-right: 10px;
+}
+
+活着的
+li:last-child {
+  margin-right: 0 
+}
+
+
+# 14、使用css3动画代替js的动画有什么好处？
+
+简单，高效
+
+https://www.cnblogs.com/shuaishuaidejun/p/7444711.html
+
+# 15、分离图层做动画有什么优点？
+
+渲染时只会渲染动画元素所在的层，不会影响到页面上的其他元素，提高渲染性能。
+
+# 16、如何创建stacking context？
+
+z-index
+
+# 17、Fixed定位如果脱离Viewport会产生什么样的bug？如何解决？
+
+todo
+
+# 18、哪些方式使得position:fixed定位的基准元素改变？
+
+层级上下文 例如filter, translate
+
+# 19、fixed定位脱离文档流与float有什么区别？
+
+文档流的概念非常有意思，当时我记得我学css这块的时候有完全脱离和半脱离两个概念。完全脱离指的是，其他元素均无视这个盒子，这个盒子的行为也影响不到其他内容了。而半脱离的概念是在有限的范围内对脱离。float虽然是脱离文档流了，但所在位置是根据父级盒子的位置来确定的，并且是在排版的时候依然要占据文字排版的空间，fixed脱离，任何元素于他的位置都没有任何关系，并且不会影响文字排版区域
+
+# 20、css如何去掉i标签默认的斜体？
+
+i{
+	font-style:normal;
+}
+
+# 21、justify-content的space-between与around有什么区别？
+
+space-between: 行内均匀分布元素，距离相同，首尾元素距离边界的距离是元素间距的一半
+space-around: 行内均匀分布元素，距离相同，首尾元素紧贴边界
+
+# 22、为什么代码中两个display属性为inline-block的元素之间有多余字符（包括换行、制表符等）会造成页面中这两个元素之间有空隙？解决方案是什么？替代方案又都有哪些？
+
+把两个<span>写在一行
+
+  <span class="item">aaa</span><span class="item">bbb</span>
+
+float浮动
+
+.item {
+  display: inline-block;
+  float: left;
+}
+
+# 23、怎么让position:fixed相对于父元素定位？
+
+1、 给父元素设置transform
+
+# 24、使用flex实现一行有多个不等的标签元素宽度平均分配 
+
+
+父： display: flex;
+子：flex: 1;
+
+# 25、使用了float的标签，如何避免左侧贴边重叠？
+
+margin
+
+# 26、怎样解决float元素无法撑起父级容器的高度？
+
+父級元素overflow:hidden;
+
+或者給父級元素增加偽類
+content:'';display:table;clear: both;
+
+# 27、解释下BFC、IFC、GFC、FFC的区别是什么？
+
+todo
+
+# 28、使用纯css布局中一个“王”字 
+
+html
+
+# 29、举例说明BFC有什么应用场景
+
+1.margin重叠
+2.不和浮动元素重叠
+3.浮动元素也算高度
+
+# 30、给兄弟元素的标签设置红色
+
+.target + * {
+  color: red;
+}
+
+# 31、解释下为什么说通配符选择器要慎用？
+
+通配符号的性能会很差，建议覆盖 特定的标签，例如
+
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, button,
+textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+
+# 32、伪类选择器和伪元素选择器有什么区别？
+
+伪类选择器：选择的是DOM树之外的消息，或是不能依靠简单选择器进行标识的元素；前者包含那些匹配指定状态的元素，比如:visited，:active，后者包含那些满足一定逻辑条件的DOM树中的元素，比如:first-child; first-of-type; :target
+伪元素选择器：选择的是DOM树没有定义的虚拟元素。不同于其他选择器，伪元素选择器不以伪元素为最小选择单位，它选择的是元素指定内容，比如::before, ::after
+
+# 33、请说说width: auto和width: 100%有什么区别？
+
+width:auto 是自适应宽度 减去 magrin 边框 等间距，剩余的宽度，width:100% 是占据父元素的 100% 宽度
+
+https://www.cnblogs.com/justuntil/p/12389993.html
+
+# 34、如何实现gif动图的暂停和播放？
+
+hover 换src
+
+# 35、简述下Flex的容器和项目的概念
+
+todo
+
+# 36、你在使用calc过程中遇到过哪些坑？如何解决？
+
+css3 calc()方法 大坑 “-”号前面和后面一定要加空格，加空格 加空格
+
+# 37、你有使用过@support吗？说说你对它的理解
+
+用于检测当前浏览器是否支持css某个属性并加载具体样式。
+
+# 38、解释下1px、1rem、1em、1vh代表的含义分别是什么？
+
+
+    1px
+    像素（Pixel），相对于显示器屏幕分辨率而言的，即一个像素点。
+    1rem
+    相对于根元素HTML，即同根元素font-size大小。
+    1em
+    当前元素的字体大小
+    1vh
+    相对于视口/视窗，即可视区域
+
+# 39、使用css制作出一个星星
+
+todo
+
+# 40、使用css3制作一个鼠标经过文本时，显示出边框的动画特效
+
+p{
+border: 1px solid transparent;
+}
+p:hover{
+border-color: red;
+}
+
+# 41、行内元素float:left后是否变为块级元素？
+
+行内元素设置成浮动之后变得更加像是 inline-block
+行内块级元素，设置成这个属性的元素会同时拥有行内和块级的特性，最明显的不同是它的默认宽度不是 100%，行内元素默认 100%宽度占据一行
+这时候给行内元素设置 padding-top 和 padding-bottom 或者 width、height 都是有效果的
+
+# 42、可以改变页面布局的属性有哪些？
+
+position 
+
+float
+
+display visibility
+
+z-index
+
+text-align text-valign line-height
+
+overflow
+
+# 43、合并CSS的方法有哪些？
+
+
+    gulp
+    webpack
+
+# 44、说说你对Bootstrap网格系统的工作原理的理解
+
+媒体查询
+
+
+# 45、如何清除li列表的符号，改成图片背景
+
+list-style-image: url('starsolid.gif');
+
+# 46、请解释下 outline-offset 属性有什么作用？
+
+outline-offset CSS 属性用于设置 outline 与一个元素边缘或边框之间的间隙
+
+# 47、请描述一下网页的层叠等级(z-index)？
+
+网页在轴上的排序
+
+# 48、请解释下float的工作原理 
+
+脱离文档流
+
+# 49、请问下，居中为什么尽量用transform，而不用margin+left(top)？
+
+<!--感受：大发现！我前些日子复习元素在页面垂直居中的一种实现方式，发现了一个记忆点，正好是今天面试题问的，神奇 -->
+
+需要设置子元素的宽高
+
+https://blog.csdn.net/qq_40137978/article/details/110430269
+
+# 50、css预处理器的优点和缺点是什么？
+
+todo
+
 
 # html
 
