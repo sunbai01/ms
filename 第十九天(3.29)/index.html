@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>18</title>
 </head>
 <body>
     <input type="password" id="password" />
@@ -112,17 +112,8 @@
     <div class="right">fwefw</div>
 </div>
 
-<div id="box"></div>
-
 </body>
 <style>
-    #box {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        cursor: move;
-        background: red;
-    }
     .flo {
         
     }
@@ -300,29 +291,6 @@
     }
 </style>
 <script>
-    const box = document.getElementById("box");
-      box.addEventListener("mousedown", function (e) {
-        const { clientX: startX, clientY: startY } = e;
-        const {x: left, y: top} = box.getBoundingClientRect()
-
-        window.addEventListener("mousemove", onMousemove);
-
-        function onMousemove (event) {
-          const { clientX: x, clientY: y } = event;
-          const dx = x - startX;
-          const dy = y - startY;
-          box.style.top = dy + top + "px";
-          box.style.left = dx + left + "px";
-        };
-
-        window.addEventListener("mouseup",unbind)
-
-        function unbind(){
-            window.removeEventListener("mousemove", onMousemove);
-            window.removeEventListener('mouseup', unbind)
-        }
-      });
-
     {
         let show = document.querySelector('#show');
         let password = document.querySelector('#password')
