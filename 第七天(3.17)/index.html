@@ -1,207 +1,21 @@
-
-<!DOCTYPE HTML>
-<HTML lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>十3</title>
 </head>
+
+
 <body>
-	<div contenteditable>孙柏</div>
-	<div>孙柏</div>
 
-	<div>缩写</div>
-	<abbr title="People's Republic of China">缩写</abbr>
-
-	<div style="font-size:16px;">
-		parent
-		<div style="font-size: 2em;">
-			children
-			<div style="font-size: 2em;">
-				children2
-			</div>
-		</div>
-	</div>
-	<figura>
-		<figcaption>
-			document.designMode = "on"; 
-		</figcaption>
-	</figura>
-	<!-- 改变标签内文本的显示方向,是一个行内元素,有一个属性dir，两个值： -->
-	<bdo dir="ltr">abcd</bdo>
-    <bdo dir="rtl">一二三四</bdo>
-
-
-
-    <label for="favorite_team">Favorite Team:</label>
-    <!-- 注意input的list属性与datalist的id属性进行绑定 -->
-    <input type="text" id="favorite_team" list="team_list" autocomplete="off">
-    <datalist id="team_list">
-        <!-- 指定了value值之后，value和innerHTML类似于标题与副标题之间的关系，选中后input的值是value -->
-        <option value="A">Aus Tigers</option>
-        <option value="B">Detroit Lions</option>
-        <option value="C">Detroit Pistons</option>
-        <option value="D">Detroit Red Wings</option>
-        <option value="E">Detroit Tigers</option>
-    </datalist>
-
-
-    <form id="form" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
-	    0<input type="range" id="a" value="50">100
-	    +<input type="number" id="b" value="50">
-	</form>
-	=<output form="form" name="x" for="a b"></output>
-
-
-	<div id="wrap">
-	    <label for="f">
-	        <input id="f" name="gender" type="radio" value="female">
-	        <span>女性</span>
-	    </label>
-	    <label for="m">
-	        <input id="m" name="gender" type="radio" value="male">
-	        <span>男性</span>
-	    </label>
-	</div>
-
-	<input TYPE="text" class="input" value="female">
-	<input type="text" value="female">
-	<div style="font-size: 0">
-		<div style="display:inline-block; font-size: 16px">
-		    孙
-		</div>
-		<div style="display:inline-block; font-size: 16px">
-		    柏
-		</div>
-	</div>
-
-	<span style="font-style:Italic">SUN</span>
-	<span style="font-style:oblique">柏</span>
-
-
-	<section class="container">
-		<div class="area1">300px</div>
-		<div class="area2">other</div>
-	</section>
-
-	<div class="juzhong">
-		hah
-	</div>
-
-	<div class="d0">
-	    <div class="d1"></div>
-	</div>
-
-	<div class="bling">
-	    😄
-	</div>
-
-	<div class="trans">
-	    trans
-	</div>
-
-
-<div class="wrap">
-  <span>hello</span>
-  <span>world</span>
-</div>
-
-
- <div class="top"><div>
-    <div class="bottom">
-        <div class="left"><div>
-        <div class="right"><div>
-    <div>
-
-<style>
-    .wrap>span {
-      background: red;
-    }
-
-    .top {
-	    width:50%;
-	    height:50%;
-	    marign:auto;
-	}
-
-	.bottom {
-	    display:flex;
-	    height:50%;
-	}
-
-	.bottom div {
-	    flex:1;
-	    height:100%;
-	}
-</style>
 
 </body>
+
 <style>
+ </style>
 
-	.trans {
-		background-color: red;
-		width: 100px;
-		height: 100px;
-		opacity: 1;
-		transition: opacity 1s linear;
-	}
+<script type="text/javascript"></script>
 
-	.trans:hover {
-	  opacity: 0;
-	}
-	@keyframes bling-kf {
-	   0% { opacity: 1; }
-	   50% { opacity: 0.5; }
-	   100% { opacity: 1; }
-	}
-	.bling {
-	    animation: bling-kf 2s ease-in infinite;
-	}
-
-	.d0{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border: 1px solid red;
-}
-.d1{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border: 1px solid blue;
-    left: calc(50% - 50px);
-    top: calc(50% - 50px);
-}
-	.juzhong  {
-		width: 200px;
-		background-color: orange;
-		/*display:flex;
-		flex-flow: row nowrap;
-		justify-content: center;
-		 align-items: center;*/
-		position:absolute;
-		left:50%;
-		top:50%;
-		transform:translate(-50%,-50%);
-	}
-	.container{
-		display: flex;
-		flex-flow: column nowrap;
-		height: 500px;
-		border: 2px dashed orange;
-	}
-	.area1 {
-		flex-basis: 300px;
-		background-color: lightblue
-	}
-	.area2 {
-		flex: 1;
-		background-color: darkcyan;
-	}
-	.input {
-		height: 100px;
-	}
-</style>
-<script type="text/javascript">
-	// document.designMode = "on"; 
-</script>
-</HTML>
+</html>
