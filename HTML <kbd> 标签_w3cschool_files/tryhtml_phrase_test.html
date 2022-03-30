@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html><head>
+<title>tryhtml_phrase_test 在线代码实例_w3cschool</title>
+<meta name="keywords" content="w3cschool,在线代码实例,在线实例,代码实例,代码示例,代码案例,在线运行,在线编译,在线预览">
+<meta name="description" content="w3cschool在线代码实例--支持在线代码运行, 在线修改代码, 在线查看运行结果。">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tryhtml_phrase_test_data/iconfont.css">
+<link rel="stylesheet" type="text/css" href="tryhtml_phrase_test_data/runcode.css">
+<script src="push.js"></script><script src="hm.js"></script><script src="jquery-1.js" type="text/javascript"></script>
+
+<script src="tryhtml_phrase_test_data/ace.js" type="text/javascript"></script><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style>
+<script src="tryhtml_phrase_test_data/ext-language_tools.js" type="text/javascript"></script><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 280px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style>
+
+<script src="tryhtml_phrase_test_data/sweetalert2.js" type="text/javascript"></script>
+<link href="tryhtml_phrase_test_data/sweetalert2.css" rel="stylesheet" type="text/css">
+
+<script src="tryhtml_phrase_test_data/es6-promise.js" type="text/javascript"></script>
+<script src="tryhtml_phrase_test_data/commonfooter.js" type="text/javascript"></script>
+<script id="mycode" type="text/mycode">PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4gCjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4gCjx0aXRsZT5XM0NzY2hvb2wodzNjc2Nob29sLmNuKTwvdGl0bGU+IAo8L2hlYWQ+Cjxib2R5PgoKPGVtPuW8uuiwg+aWh+acrDwvZW0+PGJyPgo8c3Ryb25nPuWKoOeyl+aWh+acrDwvc3Ryb25nPjxicj4KPGRmbj7lrprkuYnpobnnm648L2Rmbj48YnI+Cjxjb2RlPuS4gOauteeUteiEkeS7o+eggTwvY29kZT48YnI+CjxzYW1wPuiuoeeul+acuuagt+acrDwvc2FtcD48YnI+CjxrYmQ+6ZSu55uY6L6T5YWlPC9rYmQ+PGJyPgo8dmFyPuWPmOmHjzwvdmFyPgoKPC9ib2R5Pgo8L2h0bWw+</script>
+<script src="base64.js" type="text/javascript"></script>
+<script src="tryhtml_phrase_test_data/mode-html.js"></script><script src="tryhtml_phrase_test_data/theme-xcode.js"></script><script src="tryhtml_phrase_test_data/text.js"></script><style id="ace-xcode">.ace-xcode .ace_gutter {background: #e8e8e8;color: #333}.ace-xcode .ace_print-margin {width: 1px;background: #e8e8e8}.ace-xcode {background-color: #FFFFFF;color: #000000}.ace-xcode .ace_cursor {color: #000000}.ace-xcode .ace_marker-layer .ace_selection {background: #B5D5FF}.ace-xcode.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #FFFFFF;}.ace-xcode .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-xcode .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #BFBFBF}.ace-xcode .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.071)}.ace-xcode .ace_gutter-active-line {background-color: rgba(0, 0, 0, 0.071)}.ace-xcode .ace_marker-layer .ace_selected-word {border: 1px solid #B5D5FF}.ace-xcode .ace_constant.ace_language,.ace-xcode .ace_keyword,.ace-xcode .ace_meta,.ace-xcode .ace_variable.ace_language {color: #C800A4}.ace-xcode .ace_invisible {color: #BFBFBF}.ace-xcode .ace_constant.ace_character,.ace-xcode .ace_constant.ace_other {color: #275A5E}.ace-xcode .ace_constant.ace_numeric {color: #3A00DC}.ace-xcode .ace_entity.ace_other.ace_attribute-name,.ace-xcode .ace_support.ace_constant,.ace-xcode .ace_support.ace_function {color: #450084}.ace-xcode .ace_fold {background-color: #C800A4;border-color: #000000}.ace-xcode .ace_entity.ace_name.ace_tag,.ace-xcode .ace_support.ace_class,.ace-xcode .ace_support.ace_type {color: #790EAD}.ace-xcode .ace_storage {color: #C900A4}.ace-xcode .ace_string {color: #DF0002}.ace-xcode .ace_comment {color: #008E00}.ace-xcode .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==) right repeat-y}
+/*# sourceURL=ace/css/ace-xcode */</style><script src="tryhtml_phrase_test_data/html.js"></script></head>
+<body id="editor">
+<div class="try-content">
+<!-- 移动端显示 -->
+<div class="aui-bar aui-bar-nav play-bar-nav" style="display: none;">
+<div class="aui-title" id="title">tryhtml_phrase_test在线代码实例_w3cschool</div>
+</div>
+<div class="container-fluid content-box">
+<div class="btnbar cl" style="display: none;">
+<form style="margin:0px" action="/tryrun/showresult/showhtml.html?x=0.3437631725248085" method="post" target="view" id="tryitform" name="tryitform">
+<input type="hidden" name="codecontent" id="codecontent" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt; 
+&lt;meta charsetyoujequalsign&quot;utf-8&quot;&gt; 
+&lt;title&gt;W3Cschool(w3cschool.cn)&lt;/title&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;em&gt;强调文本&lt;/em&gt;&lt;br&gt;
+&lt;strong&gt;加粗文本&lt;/strong&gt;&lt;br&gt;
+&lt;dfn&gt;定义项目&lt;/dfn&gt;&lt;br&gt;
+&lt;code&gt;一段电脑代码&lt;/code&gt;&lt;br&gt;
+&lt;samp&gt;计算机样本&lt;/samp&gt;&lt;br&gt;
+&lt;kbd&gt;键盘输入&lt;/kbd&gt;&lt;br&gt;
+&lt;var&gt;变量&lt;/var&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;">
+</form>
+</div>
+<div class="editor-box left-box">
+<div class="text-wrap editor-wrap">
+<div class="top-con">
+<div class="top-con-text"><i class="i-icon i-icon-code-outline"></i><span>实例代码</span><span class="tips-text">( Tip: 登录后体验更佳 )</span></div>
+<div class="top-con-btn top-con-operate">
+<!-- <a id="savecode"  class="btn btn-default" href="javascript:void(0);" uid="0" >保存代码</a> -->
+<!-- <a href="/my#mycode" class="btn btn-default">我的代码</a> -->
+<a id="btrun" class="btn btn-run" href="javascript:void(0);" hidefocus="true"><i class="i-icon i-icon-play-simple"></i><span>运行代码</span></a>
+</div>
+</div>
+<div id="code" class="text-panel">
+<pre class=" ace_editor ace-xcode ace_focus" style="font-size: 14px; height: 636px;"><div style="position: absolute;"></div><textarea class="ace_text-input" autocorrect="off" autocapitalize="none" spellcheck="false" style="opacity: 0; height: 18.6667px; width: 8.4px; left: 280.8px; top: 234px;" wrap="off"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 10px; height: 673.334px; width: 50px;"><div class="ace_gutter-cell " style="height: 18.6667px;">1</div><div class="ace_gutter-cell " style="height: 18.6667px;">2<span class="ace_fold-widget ace_start ace_open" style="height: 18.6667px;"></span></div><div class="ace_gutter-cell " style="height: 18.6667px;">3<span class="ace_fold-widget ace_start ace_open" style="height: 18.6667px;"></span></div><div class="ace_gutter-cell " style="height: 18.6667px;">4</div><div class="ace_gutter-cell " style="height: 18.6667px;">5</div><div class="ace_gutter-cell " style="height: 18.6667px;">6</div><div class="ace_gutter-cell " style="height: 18.6667px;">7<span class="ace_fold-widget ace_start ace_open" style="height: 18.6667px;"></span></div><div class="ace_gutter-cell " style="height: 18.6667px;">8</div><div class="ace_gutter-cell " style="height: 18.6667px;">9</div><div class="ace_gutter-cell " style="height: 18.6667px;">10</div><div class="ace_gutter-cell " style="height: 18.6667px;">11</div><div class="ace_gutter-cell " style="height: 18.6667px;">12</div><div class="ace_gutter-cell " style="height: 18.6667px;">13</div><div class="ace_gutter-cell " style="height: 18.6667px;">14</div><div class="ace_gutter-cell " style="height: 18.6667px;">15</div><div class="ace_gutter-cell " style="height: 18.6667px;">16</div><div class="ace_gutter-cell " style="height: 18.6667px;">17</div><div class="ace_gutter-cell " style="height: 18.6667px;">18</div></div><div class="ace_gutter-active-line" style="top: 234px; height: 18.6667px;"></div></div><div class="ace_scroller" style="left: 50px; right: 0px; bottom: 0px;"><div class="ace_content" style="margin-top: 10px; width: 469px; height: 673.334px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 676px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_active-line" style="height:18.666671752929688px;top:224.00006103515625px;left:0;right:0;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:18.666671752929688px"><span class="ace_xml-pe ace_doctype ace_xml">&lt;!</span><span class="ace_xml-pe ace_doctype ace_xml">DOCTYPE</span><span class="ace_text ace_whitespace ace_xml"> </span><span class="ace_xml-pe ace_xml">html</span><span class="ace_xml-pe ace_doctype ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">html</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">head</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">meta</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">charset</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"utf-8"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">title</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">W3Cschool(w3cschool.cn)</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">title</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">head</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">body</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">em</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">强</span><span class="ace_cjk" style="width:16.8px">调</span><span class="ace_cjk" style="width:16.8px">文</span><span class="ace_cjk" style="width:16.8px">本</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">em</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">strong</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">加</span><span class="ace_cjk" style="width:16.8px">粗</span><span class="ace_cjk" style="width:16.8px">文</span><span class="ace_cjk" style="width:16.8px">本</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">strong</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">dfn</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">定</span><span class="ace_cjk" style="width:16.8px">义</span><span class="ace_cjk" style="width:16.8px">项</span><span class="ace_cjk" style="width:16.8px">目</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">dfn</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">code</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">一</span><span class="ace_cjk" style="width:16.8px">段</span><span class="ace_cjk" style="width:16.8px">电</span><span class="ace_cjk" style="width:16.8px">脑</span><span class="ace_cjk" style="width:16.8px">代</span><span class="ace_cjk" style="width:16.8px">码</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">code</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">samp</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">计</span><span class="ace_cjk" style="width:16.8px">算</span><span class="ace_cjk" style="width:16.8px">机</span><span class="ace_cjk" style="width:16.8px">样</span><span class="ace_cjk" style="width:16.8px">本</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">samp</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">kbd</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">键</span><span class="ace_cjk" style="width:16.8px">盘</span><span class="ace_cjk" style="width:16.8px">输</span><span class="ace_cjk" style="width:16.8px">入</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">kbd</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">br</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">var</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"><span class="ace_cjk" style="width:16.8px">变</span><span class="ace_cjk" style="width:16.8px">量</span></span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">var</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">body</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div class="ace_line" style="height:18.666671752929688px"><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">html</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer"><div class="ace_cursor" style="left: 230.8px; top: 224px; width: 8.4px; height: 18.6667px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 20px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 20px; height: 356px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 20px; left: 50px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 20px; width: 489px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-optical-sizing: inherit; font-language-override: inherit; font-feature-settings: inherit; font-variation-settings: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></pre>
+<div id="codeinp"></div>
+</div>
+</div>
+</div>
+<div id="result-box" class="result-box right-box">
+<div class="text-wrap result-wrap">
+<div class="top-con">
+<div class="top-con-text"><i class="i-icon i-icon-eye"></i><span>运行结果</span></div>
+<div class="top-con-btn top-con-device">
+<a href="javascript:;" class="btn active" onclick="changeView(this);" data-type="pc"><i class="i-icon i-icon iconpc"></i><span>PC端</span></a>
+<a href="javascript:;" class="btn" onclick="changeView(this);" data-type="mobile"><i class="i-icon i-icon-device-mobile"></i><span>手机端</span></a>
+<a href="javascript:;" class="btn" onclick="changeView(this);" data-type="pad"><i class="i-icon i-icon-device-pad"></i><span>平板端</span></a>
+</div>
+</div>
+<div class="text-panel">
+<div id="demotype" class="pc">
+<iframe id="result-iframe" src="/tryrun/showresult/showhtml.html" name="view" style="width: 100%;height: 100%;border: 0 none;"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var mixedMode = {
+name: "htmlmixed",
+scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+mode: null},
+{matches: /(text|application)\/(x-)?vb(a|script)/i,
+mode: "vbscript"}]
+};
+function changeView(ob){
+var type = $(ob).attr("data-type");
+$(".btn").removeClass("active");
+$(ob).addClass("active");
+if (type == 'pc'){
+$("#demotype").removeClass();
+$("#demotype").addClass("pc");
+return;
+}
+if (type == 'mobile'){
+$("#demotype").removeClass();
+$("#demotype").addClass("mobile");
+return;
+}
+if (type == 'pad'){
+$("#demotype").removeClass();
+$("#demotype").addClass("pad");
+return;
+}
+}
+ace.require("ace/ext/language_tools");
+var editor = ace.edit("codeprepare");
+$(function(){
+var mycode = $("#mycode").html();
+mycode = utf8to16(base64decode(mycode));
+//$("#codeprepare").val(mycode);
+// var editor = CodeMirror.fromTextArea(document.getElementById("codeprepare"), {
+// mode: mixedMode,
+// selectionPointer: true,
+// lineNumbers: false,
+// matchBrackets: true,
+// indentUnit: 4,
+// indentWithTabs: true
+// });
+editor.session.setMode("ace/mode/html");
+editor.setTheme("ace/theme/xcode");
+// enable autocompletion and snippets
+editor.setOptions({
+enableBasicAutocompletion: true,
+enableSnippets: true,
+enableLiveAutocompletion: true,
+autoScrollEditorIntoView: true,
+maxLines: 34,
+minLines:33,
+});
+editor.renderer.setScrollMargin(10, 10, 10, 10);
+editor.setFontSize(14);
+editor.setValue(mycode);
+editor.moveCursorTo(0, 0);//移动光标至第0行，第0列
+var tips = "将HTML代码粘在此处，点击运行即可。";
+var codeinp = document.getElementById("codeinp");
+var btclear = document.getElementById("btclear");
+var btrun = document.getElementById("btrun");
+var resultBox = document.getElementById("result-box");
+/**
+* 组织链接
+*/
+///tryrun/editdemo/
+if($("#edittry").length > 0){
+var pathname = window.location.pathname;
+var langFlags = pathname.replace("/tryrun/show","").replace(/\/.*/,'');
+var tryname = pathname.match(/[^\/]+$/)[0];
+$("#edittry").attr("href","/tryrun/editdemo/"+tryname+"?flags="+langFlags);
+}
+$(btrun).click(function()
+{
+var code = editor.getValue();
+if(code != tips)
+{
+code=code.replace(/=/gi,"youjequalsign");
+var pos=code.search(/script/i)
+while (pos>0) 
+{
+code=code.substring(0,pos) + "youj" + code.substr(pos,3) + "youj" + code.substr(pos+3,3) + "tag" + code.substr(pos+6);
+pos=code.search(/script/i);
+}
+document.getElementById("codecontent").value=code;
+document.getElementById("tryitform").action="/tryrun/showresult/showhtml.html?x=" + Math.random();
+document.getElementById("tryitform").submit();
+}
+else
+{
+alert("请将需要运行的HTML填写到输入框后再运行！", "alert", "运行提示");
+}
+});
+/**
+* 保存代码片段
+* @param  {[type]} pathname   [description]
+* @param  {[type]} inputValue [description]
+* @param  {[type]} code       [description]
+* @return {[type]}            [description]
+*/
+function savesnippet(snippet_name){
+var pathname = window.location.pathname;
+var code = editor.getValue();
+var lang = 'html';
+$.ajax({
+url: "/tryrun/savesnippet",
+type: "post",
+dataType: "json",
+data: {
+snippet_flag: pathname,
+snippet_name: snippet_name,
+snippet_content: code,
+lang: lang,
+},
+success: function(msg){
+if(msg.statusCode < 300){
+setTimeout(function(){
+swal({title:"保存成功！",
+text:"您可以在 个人中心 , 我的代码 查看",
+type:"success"},function(){window.location="/"}
+)
+}, 200);
+}else{
+swal({
+text: msg.message,
+type: 'warning'
+});
+}
+}
+});
+}
+$("#savecode").on("click", function(){
+var uid = $(this).attr('uid');
+if (uid == 0 || uid == '' || uid === undefined) {
+swal({
+text: "您还没有登录, 请登录后保存!",
+type: 'warning'
+});
+return;
+}
+var name = $(this).attr("name");
+name = name ? name : '';
+swal({
+title: '请输入代码名称',
+input: 'text',
+showCancelButton: true,
+confirmButtonText: "保存",
+cancelButtonText: "取消",
+inputValue: name,
+inputValidator: function(value) {
+console.log(value);
+return new Promise(function(resolve, reject){
+console.log(value);
+if(value){
+resolve();
+}else{
+reject('请输入代码名称');
+}
+});
+}
+}).then(function(result){
+console.log(result);
+if(result){
+$("#savecode").attr("name", result);
+swal.resetValidationError();
+savesnippet(result);
+}
+}).catch(function(resaon){
+swal.showValidationError(resaon);
+});
+// swal({
+//   title: "请输入代码名称",
+//   // text: "您的真实姓名:",
+//   type: "input",
+//   showCancelButton: true,
+//   closeOnConfirm: false,
+//   animation: "slide-from-top",
+//   inputPlaceholder: prename,
+//   confirmButtonText: "保存",
+//   cancelButtonText: "取消"
+// },
+// function (inputValue) {
+//   if (inputValue === false) return false;
+//   if (inputValue === "") {
+//     swal.showInputError("请输入代码名称:");
+//     return false
+//   }
+//   savesnippet(pathname, inputValue, code);
+//   return true;
+// });
+});
+setTimeout(function(){
+$(btrun).trigger('click');
+},300);
+});
+</script>
+
+<div class="swal2-container"><div class="swal2-overlay" tabindex="-1"></div><div class="swal2-modal" style="display: none" tabindex="-1"><div class="swal2-icon swal2-error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="swal2-icon swal2-question">?</div><div class="swal2-icon swal2-warning">!</div><div class="swal2-icon swal2-info">i</div><div class="swal2-icon swal2-success"><span class="line tip"></span> <span class="line long"></span><div class="placeholder"></div> <div class="fix"></div></div><img class="swal2-image"><h2></h2><div class="swal2-content"></div><input class="swal2-input"><select class="swal2-select"></select><div class="swal2-radio"></div><label for="swal2-checkbox" class="swal2-checkbox"><input type="checkbox" id="swal2-checkbox"></label><textarea class="swal2-textarea"></textarea><div class="swal2-validationerror"></div><hr class="swal2-spacer"><button class="swal2-confirm">OK</button><button class="swal2-cancel">Cancel</button><span class="swal2-close">×</span></div></div></body></html>
