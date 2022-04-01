@@ -1,0 +1,19 @@
+// vue 双向绑定原理
+
+// 先说下数据劫持
+// var obj = {}
+
+// function defineName(obj) {
+// 	let name = '';
+// 	Object.defineProperty(obj, name, {
+// 		get: function() {
+// 			return this.name
+// 		},
+// 		set: function(newName) {
+// 			this.name = newName;
+// 		}
+// 	} )
+// }
+
+// defineName(obj);
+

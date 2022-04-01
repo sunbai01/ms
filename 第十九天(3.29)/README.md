@@ -342,4 +342,104 @@ p {
 css变量必须以--开头，对大小写敏感，--main-bg和--main-Bg会被认为是两个不同的变量
 
 
+
+# html
+
 # 周级汇总题目
+
+# 1、如何解决WebSocket的兼容性
+
+SockJS 是一个 javascript 库，为浏览器提供了一个类似 websocket 的对象，它会优先使用原生的WebSocket；如果不支持，则使用streaming；如果streaming也不支持，则使用轮询（polling）
+
+使用：
+
+加载 sockjs 库
+<script src="sockjs.min.js"></script>
+
+建立链接：
+
+var sock = new SockJS('http://xxx/my_prefix');
+sock.open = function() {
+  sock.send('xx');
+}
+
+sock.onmessage = function(e) {
+  sock.close();
+}
+
+sock.onclose = function() {
+  console.log('close');
+}
+
+
+# 2、你现在在团队是什么角色，有起到了什么显著的作用吗？
+
+高级开发工程师，偏架构，目前的主要工作是，重构现有项目 + 业务迭代
+
+# 3、window对象和document对象有什么区别？
+
+window对象
+
+代表浏览器中的一个打开的窗口或者框架，window对象会在或者每次出现时被自动创建，在客户端JavaScript中，Window对象是全局对象global，所有的表达式都在当前的环境中计算，要引用当前的窗口不需要特殊的语法，可以把那个窗口属性作为全局变量使用，例如：可以只写document，而不必写window.document。同样可以把窗口的对象方法当做函数来使用，如：只写alert()，而不必写window.alert.
+window对象实现了核心JavaScript所定义的全局属性和方法。
+
+
+
+document对象
+
+代表整个HTML文档，可以用来访问页面中的所有元素 。
+每一个载入浏览器的HTML文档都会成为document对象。document对象使我们可以使用脚本(js)中对HTML页面中的所有元素进行访问。
+document对象是window对象的一部分可以通过window.document属性对其进行访问
+HTMLDocument接口进行了扩展，定义HTML专用的属性和方法，很多属性和方法都是HTMLCollection对象，其中保存了对锚、表单、链接以及其他可脚本元素的引用。
+
+
+# 4、重置（初始化）css的作用是什么？
+
+统一各个浏览器自带的默认样式而诞生的
+
+# 5、解释下什么是ISISO8859-2字符集
+
+是Ascll扩展部分的字符集。
+
+# 6、最近在学什么？能谈谈你未来3，5年给自己的规划吗？
+
+最近学前端基础，三年做到前端自信，可以cover各种业务需求,5年做到架构自信 以及 养成干什么都看源码的好习惯
+
+# 7、JQuery的源码看过吗？能不能简单概括一下它的实现原理？
+
+# 8、span与span之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+
+可以设置父元素 font-size: 0; 解决
+或者父元素设置 display:flex/inline-flex;
+span 子元素设置 float: left
+
+# 9、如何让元素固定在页面底部？有哪些比较好的实践？
+
+display：fixed
+
+bottom： 0
+
+# 10、说说你对http、https、http2的理解
+
+http: 重复拨号的单对单电话
+
+http(超文本传输协议）：定义了客户端与服务器之间交换报文的格式和方式。默认使用80端口。
+
+
+https: 安全点重复拨号的单对单电话
+https：基于TLS/SSL的超文本传输协议。
+
+http2: 不需要重复拨号的单对多电话
+
+不仅解决了http的非持续连接，还增加了多路复用，以及服务器推送的功能
+
+
+# 11、深度克隆对象的方法有哪些，并把你认为最好的写出来 
+
+# 12、
+
+
+
+
+
+
