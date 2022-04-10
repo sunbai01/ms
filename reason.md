@@ -75,3 +75,24 @@ webpack
 手写一个promise
 双向绑定
 babel怎么做的这个事情？ AST
+
+
+定时器的重置：
+function debounce(fn, delay) {
+	let timer
+	return function(...args) {
+		if(timer) clearTimeout(timer)
+		timer = setTimeout(() => {
+			fn.apply(this, args), delay)
+		})
+	}
+}
+
+function debounce(fn, delay) {
+  let timer
+  return function(...args) {
+    if (timer) clearTimeout(timer)
+    // 使用箭头函数来处理this问题
+    timer = setTimeout(() => fn.apply(this, args), delay)
+  }
+}
